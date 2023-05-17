@@ -1,5 +1,8 @@
+<head>
+<link rel="stylesheet" href="src/assets/my-style.css">
+</head>
 <template>
-  <nav>
+  <nav class="navbar">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>

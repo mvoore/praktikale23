@@ -3,9 +3,8 @@
 </head>
 <template>
   <nav class="navbar">
-    <router-link to="/">Home</router-link> |
     <router-link to="/kkk">KKK</router-link> |
-    <router-link to="/kontakt">Kontakt</router-link> |
+    <router-link to="/kontakt">Kontakt</router-link>
   </nav>
   <router-view/>
 </template>

@@ -1,25 +1,42 @@
-<head>
-<link rel="stylesheet" href="src/assets/my-style.css">
-</head>
 <template>
-    <div class="home">
-        <div class="container">
-            <div>
-                <div class="custom-spacing">
-                    <label for="username" class="form-label">Kasutajanimi</label>
-                    <input v-model="username" type="text" class="form-control" id="username">
-                </div>
-                <div class="custom-spacing">
-                    <label for="password" class="form-label">Salasõna</label>
-                    <input v-model="password" type="password" class="form-control" id="password">
-                </div>
-                <button @click="login" type="submit" class="btn btn-primary">Logi sisse</button>
-                <div class="custom-spacing">
-                    <router-link to="/registreerimine">Loo kasutaja</router-link>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <h3>Tere! Oled jõudnud praktikapakkumiste koduleheküljele. Edasiseks palun logi sisse. </h3>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col col-4">
+
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                Column
+            </div>
+        </div>
+
     </div>
+
+
 </template>
 
 <script>

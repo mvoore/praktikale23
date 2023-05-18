@@ -12,18 +12,6 @@ body {
     background-position: center;
 }
 
-.home .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.home .col {
-    width: 100%;
-    padding: 25px;
-    box-sizing: border-box;
-}
-
 .navbar {
     position: fixed;
     bottom: 0;
@@ -32,10 +20,6 @@ body {
     padding: 10px;
     text-align: center;
 }
-.custom-spacing {
-    padding: 15px;
-}
-.custom-spacing label {
-    padding: 10px;
-}
+
+
 

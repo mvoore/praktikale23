@@ -2,13 +2,17 @@
 <link rel="stylesheet" href="src/assets/my-style.css">
 </head>
 <template>
-  <nav class="navbar">
-    <router-link to="/kkk">KKK</router-link> |
-    <router-link to="/kontakt">Kontakt</router-link>
-  </nav>
-  <router-view/>
+    <nav class=" justify-content-center">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/intern">Intern Home</router-link> |
+        <router-link to="/kontakt">Logi välja</router-link>
+    </nav>
+    <nav class="footermenu justify-content-center">
+        <router-link to="/kkk">KKK</router-link> |
+        <router-link to="/kontakt">Kontakt</router-link>
+    </nav>
+    <router-view/>
 </template>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

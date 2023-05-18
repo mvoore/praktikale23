@@ -1,15 +1,17 @@
+.home {
+    height: 100vh;
+}
 body {
     background-image: url("@/assets/Sky.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100%;
 }
 .home .row {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 300px;
+    margin-top: 0;
 }
 
 .home .container {
@@ -24,7 +26,10 @@ body {
     box-sizing: border-box;
 }
 .navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 10px;
     text-align: center;
-    margin-top: auto;
 }

@@ -35,3 +35,6 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script setup>
+import InternshipsView from "@/views/InternshipsView.vue";
+</script>

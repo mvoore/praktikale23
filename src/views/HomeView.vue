@@ -3,8 +3,9 @@
         <AlertDanger :message="message"/>
         <div class="row justify-content-center">
             <div class="col mt-5">
-                <h3>Oled jõudnud praktikapakkumiste koduleheküljele. </h3>
-                <h4>Edasiseks palun logi sisse.</h4>
+               <div class="mb-5"> <h3 >Oled jõudnud praktikapakkumiste koduleheküljele. </h3>
+               </div>
+                <h4>Lehe kasutamiseks palume sisse logida.</h4>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -33,9 +34,11 @@
 
 
 import router from "@/router";
+import AlertDanger from "@/components/alert/AlertDanger.vue";
 
 export default {
     name: 'HomeView',
+    components: {AlertDanger},
 
     data() {
         return {
@@ -73,6 +76,8 @@ export default {
                 this.loginResponse = response.data
                 sessionStorage.setItem('userId', this.loginResponse.userId)
                 sessionStorage.setItem('roleName', this.loginResponse.roleName)
+                this.$emit('event-update-nav-menu')
+
                 if (this.loginResponse.roleName === 'intern') {
                     router.push({name: 'internRoute'});
 
@@ -83,7 +88,7 @@ export default {
                 }
             }).catch(error => {
                 this.errorResponse = error.response.data
-                if (this.errorResponse.errorCode === 123) {
+                if (this.errorResponse.errorCode === 500) {
                     this.message = this.errorResponse.message
                 } else {
                     router.push({name: 'errorRoute'})

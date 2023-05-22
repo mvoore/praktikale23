@@ -8,7 +8,7 @@
 body {
     background-image: url("@/assets/Sky.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: center;
 }
 
@@ -17,7 +17,6 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 10px;
     text-align: center;
 }
 

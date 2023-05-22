@@ -4,11 +4,12 @@ import ErrorView from "@/views/ErrorView.vue";
 import CustomerView from "@/views/CustomerView.vue";
 import SignUpView from "@/views/SignUpView.vue";
 import InternView from "@/views/InternView.vue";
+import AdminView from "@/views/AdminView.vue";
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'homeRoute',
     component: HomeView
   },
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/signup',
     name: 'signupRoute',
     component: SignUpView
+  },
+  {
+    path: '/admin',
+    name: 'adminRoute',
+    component: AdminView
   },
 
 ]

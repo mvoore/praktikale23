@@ -1,5 +1,6 @@
 <template>
     <div @keydown.enter="login"  class="container">
+        <AlertDanger :message="message"/>
         <div class="row justify-content-center">
             <div class="col mt-5">
                 <h3>Oled jõudnud praktikapakkumiste koduleheküljele. </h3>
@@ -21,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col mt-3">
-                <router-link to="/register">Loo uus kasutaja</router-link>
+                <router-link to="/signup">Loo uus kasutaja</router-link>
             </div>
         </div>
     </div>
@@ -72,8 +73,6 @@ export default {
                 this.loginResponse = response.data
                 sessionStorage.setItem('userId', this.loginResponse.userId)
                 sessionStorage.setItem('roleName', this.loginResponse.roleName)
-                this.$emit('event-update-nav-menu')
-
                 if (this.loginResponse.roleName === 'intern') {
                     router.push({name: 'internRoute'});
 
@@ -84,7 +83,7 @@ export default {
                 }
             }).catch(error => {
                 this.errorResponse = error.response.data
-                if (this.errorResponse.errorCode === 500) {
+                if (this.errorResponse.errorCode === 123) {
                     this.message = this.errorResponse.message
                 } else {
                     router.push({name: 'errorRoute'})

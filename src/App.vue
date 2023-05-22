@@ -36,5 +36,5 @@ nav a.router-link-exact-active {
 }
 </style>
 <script setup>
-import InternshipsView from "@/views/InternshipsView.vue";
+// import InternshipsView from "@/views/InternshipsView.vue";
 </script>

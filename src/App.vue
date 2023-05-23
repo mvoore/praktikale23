@@ -3,7 +3,8 @@
 </head>
 <template>
   <nav class=" justify-content-center">
-    <router-link to="/">Home</router-link>|
+    <router-link to="/">Kodu</router-link> |
+    <router-link to="/internships">Praktikapakkumised</router-link> |
     <router-link to="/kontakt">Logi välja</router-link>
   </nav>
   <nav class="footermenu justify-content-center">
@@ -36,5 +37,4 @@ nav a.router-link-exact-active {
 }
 </style>
 <script setup>
-// import InternshipsView from "@/views/InternshipsView.vue";
 </script>

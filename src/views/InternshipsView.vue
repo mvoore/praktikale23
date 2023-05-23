@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="col">
-              <InternshipTable :selected-region-id="selectedRegionId" :selected-category-id="selectedCategoryId"/>
+                <InternshipsTable ref="internshipsTableRef" />
             </div>
         </div>
     </div>
@@ -24,12 +24,12 @@
 import SortDropdown from "@/components/SortDropdown.vue";
 import RegionsDropdown from "@/components/RegionsDropdown.vue";
 import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
-import InternshipTable from "@/components/InternshipsTable.vue";
+import InternshipsTable from "@/components/InternshipsTable.vue";
 
 export default {
     name: "InternshipsView",
     components: {
-      InternshipTable,
+        InternshipsTable,
         CategoriesDropdown,
         RegionsDropdown,
         SortDropdown
@@ -44,12 +44,12 @@ export default {
 
     methods: {
         setSelectedRegionId(selectedRegionId) {
-            this.selectedRegionId = selectedRegionId
-
+            this.$refs.internshipsTableRef.setSelectedRegionId(selectedRegionId)
+            this.$refs.internshipsTableRef.getInternships()
         },
         setSelectedCategoryId(selectedCategoryId) {
-            this.selectedCategoryId = selectedCategoryId
-
+            this.$refs.internshipsTableRef.setSelectedCategoryId(selectedCategoryId)
+            this.$refs.internshipsTableRef.getInternships()
         },
     },
 

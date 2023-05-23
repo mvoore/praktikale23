@@ -17,9 +17,7 @@
         <td>{{ internship.companyName }}</td>
         <td>{{ internship.title }}</td>
         <td>{{ internship.dateAdded }}</td>
-        <td>
-          <img :src="internship.imageData" alt="Internship Image" />
-        </td>
+        <td>{{ internship.imageData }}</td>
       </tr>
     </tbody>
   </table>
@@ -28,48 +26,56 @@
 import router from '@/router';
 
 export default {
-  name: 'InternshipsTable',
-  props: {
-    selectedRegionId: Number,
-    selectedCategoryId: Number
-  },
+    name: 'InternshipsTable',
+    data() {
+        return {
+            selectedRegionId: 0,
+            selectedCategoryId: 0,
+            internships: [
+                {
+                    internshipId: 0,
+                    companyName: '',
+                    categoryName: '',
+                    regionName: '',
+                    title: '',
+                    imageData: '',
+                    dateAdded: ''
+                }
+            ]
 
-  data() {
-    return {
-      errorResponse: {
-        message: '',
-        errorCode: 0
-      },
-      internships: [
-        {
-          internshipId: 0,
-          companyName: '',
-          categoryName: '',
-          regionName: '',
-          title: '',
-          imageData: '',
-          dateAdded: ''
+
         }
-      ]
-    }
-  },
-  methods: {
-    getInternships(){
-      this.$http.get("/internships", {
-            params: {
-              regionId: this.selectedRegionId,
-              categoryId: this.selectedCategoryId
-            }
-          }
-      ).then(response => {
-        this.internships = response.data
-      }).catch(error => {
-        router.push({name: 'errorRoute'})
-      })
     },
-  },
-  mounted() {
-    this.getInternships()
-  }
+    methods: {
+
+        getInternships() {
+            this.$http.get("/internships", {
+                    params: {
+                        regionId: this.selectedRegionId,
+                        categoryId: this.selectedCategoryId
+                    }
+                }
+            ).then(response => {
+                this.internships = response.data
+            }).catch(error => {
+                router.push({name: 'errorRoute'})
+            })
+        },
+
+        setSelectedRegionId(selectedRegionId) {
+            this.selectedRegionId = selectedRegionId
+        },
+
+        setSelectedCategoryId(selectedCategoryId) {
+            this.selectedCategoryId = selectedCategoryId
+        }
+
+
+    },
+    mounted() {
+        this.getInternships()
+
+    }
+
 }
 </script>

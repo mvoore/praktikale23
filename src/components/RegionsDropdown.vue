@@ -15,8 +15,8 @@ export default {
       selectedRegionId: '0',
       regions: [
         {
-          "regionId": 0,
-          "regionName": ''
+          regionId: 0,
+          regionName: ''
         }
       ]
     }
@@ -38,6 +38,6 @@ export default {
   },
   beforeMount() {
     this.getRegions()
-  },
-};
+  }
+}
 </script>

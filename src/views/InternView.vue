@@ -9,11 +9,18 @@
     <div class="container">
         <div class="row">
             <div class="col mt-3 text-start">
-                <h3>Andmed:
-                    <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/>
-                </h3>
-                <p>Nimi:</p>
-                <p>Email:</p>
+                <h3></h3>
+                Kasutaja andmed:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Nimi:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Email:
             </div>
         </div>
 

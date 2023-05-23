@@ -1,12 +1,28 @@
 
 <template>
 
+
+    <div v-if="message  !== ''&& message !== null" class="row justify-content-center">
+        <div class="col col-6">
+            <slot name="body">
+                {{ message }}
+            </slot>
+        </div>
+    </div>
+
+
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+export default {
+    name: 'Alert',
 
-export default defineComponent({
-    name: "Alert"
-})
+    props:{
+        message: String
+
+    }
+
+
+
+}
 </script>

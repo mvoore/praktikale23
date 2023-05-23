@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="col">
-              <InternshipTable/>
+              <InternshipTable :selected-region-id="selectedRegionId" :selected-category-id="selectedCategoryId"/>
             </div>
         </div>
     </div>

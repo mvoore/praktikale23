@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row mb-3">
       <div class="col">
-        <SortDropdown @event-emit-selected-sort-value=""/>
+        <SortDropdown @event-emit-selected-sort-value="setSelectedSortValue"/>
       </div>
       <div class="col">
         <RegionsDropdown @event-emit-selected-region-id="setSelectedRegionId"/>

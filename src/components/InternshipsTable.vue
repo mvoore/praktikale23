@@ -61,6 +61,7 @@ export default {
           }
       ).then(response => {
         this.internships = response.data
+
       }).catch(error => {
         router.push({name: 'errorRoute'})
       })

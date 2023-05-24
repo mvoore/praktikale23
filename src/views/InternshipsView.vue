@@ -39,6 +39,8 @@ export default {
         return {
             selectedRegionId: 0,
             selectedCategoryId: 0,
+            selectedStartDate:null,
+            selectedEndDate:null
         }
     },
 

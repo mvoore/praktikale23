@@ -9,31 +9,36 @@
     <div class="container">
         <div class="row">
             <div class="col mt-3 text-start">
-                <h3></h3>
-                Kasutaja andmed:
+                <h3>Andmed:
+                    <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/>
+                </h3>
+                <p>Nimi:</p>
+                <p>Email:</p>
+            </div>
+            <div class="col col-5 text-end">
+                Lisa CV
+                <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
+                <br>
+                <br>
+                Lisa motivatsioonikiri
+                <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                Nimi:
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                Email:
-            </div>
-        </div>
-
-        <router-link to="/internships">Vaata pakkumisi</router-link>
+        <router-link to="/internships">Vaata praktika pakkumisi</router-link>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <button  @click="addCv" type="button" class="btn btn-outline-success">Lisa CV</button>
-                <button  @click="addCoverLetter" type="button" class="btn btn-outline-success">Lisa motivatsioonikiri</button>
+            <div class="col col-6 text-start">
+                Minu praktika kandideerimised:
+                <br>
+                <br>
+                <p> Esimene pakkumine</p>
+                <p> Teine pakkumine</p>
             </div>
         </div>
     </div>
+<!--    <button @click="addCv" type="button" class="btn btn-outline-success">Lisa CV</button>-->
+<!--    <button @click="addCoverLetter" type="button" class="btn btn-outline-success">Lisa motivatsioonikiri</button>-->
 
 </template>
 

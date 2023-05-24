@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="col col-5 mt-5">
-        Lisa uus pakkumine
+          <router-link to="/new-offer">Lisa uus pakkumine</router-link>
         <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
       </div>
     </div>

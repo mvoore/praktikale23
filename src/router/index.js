@@ -6,6 +6,7 @@ import SignUpView from "@/views/SignUpView.vue";
 import InternView from "@/views/InternView.vue";
 import AdminView from "@/views/AdminView.vue";
 import InternshipsView from "@/views/InternshipsView.vue";
+import NewOfferView from "@/views/NewOfferView.vue";
 
 const routes = [
   {
@@ -44,6 +45,12 @@ const routes = [
     path: '/internships',
     name: 'internshipsRoute',
     component: InternshipsView
+  },
+
+  {
+    path: '/new-offer',
+    name: 'newOfferView',
+    component: NewOfferView
   },
 
 ]

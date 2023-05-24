@@ -1,11 +1,15 @@
 <template>
 
+
   <select v-model="selectedCategoryId" @change="emitSelectedCategoryId" class="form-select"
           aria-label="Default select example">
     <option selected value="0">Kõik valdkonnad</option>
-    <option v-for="category in categories" :key="category.categoryId" :value="category.categoryId"> {{ category.categoryName }}
+    <option v-for="category in categories" :key="category.categoryId" :value="category.categoryId">
+      {{ category.categoryName }}
     </option>
   </select>
+
+
 </template>
 
 <script>
@@ -29,9 +33,11 @@ export default {
 
   methods: {
 
+
     emitSelectedCategoryId() {
       this.$emit('event-emit-selected-category-id', Number(this.selectedCategoryId))
     },
+
 
     getCategories() {
       this.$http.get("/categories")
@@ -45,6 +51,7 @@ export default {
 
     setSelectedCategoryId(categoryId) {
       this.selectedCategoryId = categoryId
+
     },
 
   },

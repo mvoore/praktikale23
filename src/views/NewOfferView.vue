@@ -3,7 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col col-7 mt-3 text-start">
-                <h2>Praktika sisestamine/muutmine</h2>
+                <h2>Praktika sisestamine/muutmine  <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/></h2>
+
             </div>
         </div>
     </div>
@@ -44,8 +45,9 @@
                     </select>
                 </div>
 
-                <p >
-                    <a class="btn btn-primary"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" >Loo uus aadress</a>
+                <p>
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+                       aria-expanded="false" aria-controls="multiCollapseExample1">Loo uus aadress</a>
                 </p>
                 <div class="row">
                     <div class="col">
@@ -53,7 +55,8 @@
                             <div class="card card-body">
                                 <form class="row g-3">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="addressName" placeholder="Aadressi nimi" >
+                                        <input type="text" class="form-control" id="addressName"
+                                               placeholder="Aadressi nimi">
                                     </div>
 
                                     <div class="col-md-8">
@@ -61,13 +64,14 @@
                                     </div>
 
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="Maja number">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                               placeholder="Maja number">
                                     </div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" placeholder="Linn" id="city">
                                     </div>
                                     <div class="col-md-4">
-                                        <select id="region" class="form-select" >
+                                        <select id="region" class="form-select">
                                             <option selected>Maakond</option>
                                             <option>Harjumaa</option>
                                             <option>Pärnumaa</option>
@@ -78,14 +82,24 @@
                                     </div>
 
 
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-2">
 
-                                        <span class="input-group-text" id="basic-addon3"> <a href="https://www.latlong.net/" class="stretched-link">Abiks</a> </span>
-                                        <input type="text" class="form-control" id="latitude" placeholder="Laiuskraad">
-                                        <input type="text" class="form-control" id="longitude" placeholder="Pikkuskraad">
+                                        <span class="input-group-text" id="basic-addon3"> <a
+                                                href="https://www.latlong.net/" class="stretched-link">Abiks</a> </span>
+
                                     </div>
+
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                               placeholder="Laiuskraadid">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" placeholder="Pikkuskraadid" id="city">
+                                    </div>
+
                                     <div class="d-md-flex justify-content-md-end mt-3">
-                                        <button type="submit" class="btn btn-primary  mb-3">Salvesta uus aadress</button>
+                                        <button type="submit" class="btn btn-primary  mb-3">Salvesta uus aadress
+                                        </button>
                                     </div>
                                 </form>
 
@@ -95,8 +109,6 @@
                 </div>
 
 
-
-
                 <div class="input-group mb-3 mt-3">
                     <input type="text" class="form-control" placeholder="Valdkond" id="category">
                 </div>
@@ -104,6 +116,7 @@
                 <div class="mb-3">
                     <input type="email" class="form-control" placeholder="email" id="email">
                 </div>
+
 
                 <div class="input-group">
                     <textarea class="form-control" placeholder="Praktikakoha kirjeldus/info"
@@ -121,7 +134,9 @@
             </div>
             <div class="col">
 
-                <button type="button" class="btn btn-primary btn-lg"><font-awesome-icon :icon="['fas', 'image']" size="2xl"/></button>
+                <button type="button" class="btn btn-primary btn-lg">
+                    <font-awesome-icon :icon="['fas', 'image']" size="2xl"/>
+                </button>
                 <div>
                     <router-link to="">Lisa pilt</router-link>
                 </div>
@@ -137,11 +152,10 @@
 </template>
 
 <script>
+
+
 export default {
-    name: "NewOfferView"
+    name: "NewOfferView",
+
 }
 </script>
-
-<style scoped>
-
-</style>

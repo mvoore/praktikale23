@@ -8,9 +8,9 @@
 body {
     background-image: url("@/assets/Sky.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size:100%;
     background-position: v-bind();
-    height: 150vh;
+    height: 100vh;
 }
 
 .footermenu {

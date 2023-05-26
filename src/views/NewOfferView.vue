@@ -1,26 +1,22 @@
 <template>
 
-    <div class="container">
-        <div class="row">
-            <div class="col col-7 mt-3 text-start">
-                <h2>Praktika sisestamine/muutmine  <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/></h2>
+  <div class="container">
+    <div class="row">
+      <div class="col col-7 mt-3 text-start">
+        <h2>{{ pageTitle }}
+          <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/>
+        </h2>
 
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="container">
-        <div class="row">
-
-
-
-
-        </div>
+  <div class="container">
+    <div class="row">
 
     </div>
 
-
-
+  </div>
 
 
     <div class="container">
@@ -31,104 +27,38 @@
                 <div class="input-group mb-3 ">
                     <input type="text" class="form-control" placeholder="Praktikakoha pealkiri" id="title">
                 </div>
-
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ettevõtte nimi" id="companyName">
-                </div>
+                    <select  class="form-select" id="Address">
+                        <option selected value="0">Kõik aadressid</option>
+                        <option>Aadress1
+                        </option>
 
-                <div class="input-group mb-3">
-                    <select class="form-select" id="companyAddress">
-                        <option selected>Salvestatud aadressid</option>
-                        <option value="1">Tehas</option>
-                        <option value="2">Kontor</option>
-                        <option value="3">Pood</option>
+
                     </select>
                 </div>
 
-                <p>
+                <p >
                     <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
                        aria-expanded="false" aria-controls="multiCollapseExample1">Loo uus aadress</a>
                 </p>
-                <div class="row">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multiCollapseExample1">
-                            <div class="card card-body">
-                                <form class="row g-3">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="addressName"
-                                               placeholder="Aadressi nimi">
-                                    </div>
-
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="Tänav">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" id="inputAddress"
-                                               placeholder="Maja number">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Linn" id="city">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select id="region" class="form-select">
-                                            <option selected>Maakond</option>
-                                            <option>Harjumaa</option>
-                                            <option>Pärnumaa</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" id="inputZip" placeholder="Postiindeks">
-                                    </div>
+                <AddressInput />
 
 
-                                    <div class="input-group mb-2">
 
-                                        <span class="input-group-text" id="basic-addon3"> <a
-                                                href="https://www.latlong.net/" class="stretched-link">Abiks</a> </span>
-
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" id="inputAddress"
-                                               placeholder="Laiuskraadid">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Pikkuskraadid" id="city">
-                                    </div>
-
-                                    <div class="d-md-flex justify-content-md-end mt-3">
-                                        <button type="submit" class="btn btn-primary  mb-3">Salvesta uus aadress
-                                        </button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
+                <div class="col mb-3 mt-3">
+                    <CategoriesDropdown @event-emit-selected-category-id="setSelectedCategoryId"/>
                 </div>
-
-
-                <div class="input-group mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="Valdkond" id="category">
-                </div>
-
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="email" id="email">
-                </div>
-
 
                 <div class="input-group">
                     <textarea class="form-control" placeholder="Praktikakoha kirjeldus/info"
-                              aria-label="With textarea"></textarea>
+                              id="description" aria-label="With textarea" rows="10" cols="50"></textarea>
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
                     <button class="btn btn-primary me-md-2" type="button">Tagasi profiilile</button>
                     <button class="btn btn-primary me-md-2" type="button">Muuda</button>
-                    <button class="btn btn-primary" type="button">Salvesta</button>
+                    <button @click="addInternship" class="btn btn-primary" type="button">Salvesta</button>
                 </div>
-
 
 
             </div>
@@ -154,8 +84,56 @@
 <script>
 
 
+import router from "@/router";
+import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
+import AddressInput from "@/components/AddressInput.vue";
+
 export default {
     name: "NewOfferView",
+    components: { AddressInput, CategoriesDropdown},
+
+    data() {
+        return {
+
+            selectedCategoryId: 0,
+            selectedAddressId:0,
+
+            newInternshipRequest: {
+                userId: sessionStorage.getItem('userId'),
+                title: '',
+                categoryId: '',
+                description: '',
+                imageData: ''
+
+            }
+        }
+    },
+    methods: {
+        addInternship: function () {
+            this.$http.post("/new-offer", this.newInternshipRequest
+            ).then(response => {
+                const responseBody = response.data
+                router.push({name: 'customerRoute'})
+
+            }).catch(error => {
+                const errorResponseBody = error.response.data
+                router.push({name: 'errorRoute'})
+
+            })
+
+
+        },
+        setSelectedCategoryId(selectedCategoryId) {
+            this.selectedCategoryId = selectedCategoryId
+        },
+
+        setSelectedCityId(selectedCityId) {
+            this.selectedCityId =selectedCityId
+        },
+
+
+
+    }
 
 }
 </script>

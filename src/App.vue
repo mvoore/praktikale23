@@ -7,12 +7,13 @@
         <router-link to="/intern">Intern Home</router-link> |
 <!--        <router-link to="/kontakt">Logi välja</router-link> |-->
         <router-link to="/internships">Praktika pakkumised</router-link>|
-        <router-link to="/customer">Pakkuja Home</router-link>
+        <router-link to="/customer">Pakkuja Home</router-link>|
+        <router-link to="/apply">Kandideerimine Home</router-link>
     </nav>
-<!--    <nav class="footermenu justify-content-center">-->
-<!--        <router-link to="/kkk">KKK</router-link> |-->
-<!--        <router-link to="/kontakt">Kontakt</router-link>-->
-<!--    </nav>-->
+    <nav class="footermenu justify-content-center">
+        <router-link to="/kkk">KKK</router-link> |
+        <router-link to="/contact">Kontakt</router-link>
+    </nav>
     <router-view/>
 </template>
 <style>

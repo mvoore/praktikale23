@@ -7,6 +7,9 @@ import InternView from "@/views/InternView.vue";
 import AdminView from "@/views/AdminView.vue";
 import InternshipsView from "@/views/InternshipsView.vue";
 import NewOfferView from "@/views/NewOfferView.vue";
+import KKKView from "@/views/KKKView.vue";
+import ContactView from "@/views/ContactView.vue";
+import ApplyView from "@/views/ApplyView.vue";
 
 const routes = [
   {
@@ -51,6 +54,24 @@ const routes = [
     path: '/new-offer',
     name: 'newOfferView',
     component: NewOfferView
+  },
+
+  {
+    path: '/KKK',
+    name: 'kkkRoute',
+    component: KKKView
+  },
+
+  {
+    path: '/contact',
+    name: 'contactRoute',
+    component: ContactView
+  },
+
+  {
+    path: '/apply',
+    name: 'applyRoute',
+    component: ApplyView
   },
 
 ]

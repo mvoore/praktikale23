@@ -1,31 +1,46 @@
 <template>
-    <body>
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
-            <div class='col-sm-6'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-                    </div>
-                </div>
+            <div class="col align-content-center">
+               <h2>Korduma kippuvad küsimused</h2>
             </div>
         </div>
     </div>
-
-
-
-    </body>
-
+    <div class="container mb-5">
+        <div class="row">
+            <div>
+               <h3>Küsimus üks:</h3>
+            </div>
+            <div>
+                vastus üks
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5">
+        <div class="row">
+            <div>
+               <h3>Küsimus kaks:</h3>
+            </div>
+            <div>
+                vastus kaks
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5">
+        <div class="row">
+            <div>
+               <h3>Küsimus kolm:</h3>
+            </div>
+            <div>
+                vastus kolm
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: "KKKView",
-
-
+    name: "KKKView"
 }
 </script>
 

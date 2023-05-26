@@ -6,24 +6,28 @@
                     <form class="row g-3">
                         <div class="input-group col-md-6">
                             <input v-model="addressInput.addressName" type="text" class="form-control" id="addressName"
-                                   placeholder="Aadressi nimi" >
+                                   placeholder="Aadressi nimi">
                         </div>
 
                         <div class="col-md-8">
-                            <input v-model="addressInput.street" type="text" class="form-control" id="street" placeholder="Tänav">
+                            <input v-model="addressInput.street" type="text" class="form-control" id="street"
+                                   placeholder="Tänav">
                         </div>
 
                         <div class="col-md-4">
-                            <input v-model="addressInput.streetNumber" type="text" class="form-control" id="streetNumber"
+                            <input v-model="addressInput.streetNumber" type="text" class="form-control"
+                                   id="streetNumber"
                                    placeholder="Maja number">
 
                         </div>
-                        <CityDropdown/>
+                        <CityDropdown ref="cityNameInputRef" @event-emit-selected-city-id="setSelectedCityId"/>
                         <div class="col-md-4">
-                            <RegionsDropdown ref="regionNameInputRef" @event-emit-selected-region-id="setSelectedRegionId" />
+                            <RegionsDropdown ref="regionNameInputRef"
+                                             @event-emit-selected-region-id="setSelectedRegionId"/>
                         </div>
                         <div class="col-md-4">
-                            <input v-model="addressInput.postalCode" type="text" class="form-control" id="postalCode" placeholder="Postiindeks">
+                            <input v-model="addressInput.postalCode" type="text" class="form-control" id="postalCode"
+                                   placeholder="Postiindeks">
                         </div>
 
 
@@ -39,7 +43,8 @@
                                    placeholder="Laiuskraadid">
                         </div>
                         <div class="col-md-4">
-                            <input v-model="addressInput.longitude" type="text" class="form-control" placeholder="Pikkuskraadid" id="longitude">
+                            <input v-model="addressInput.longitude" type="text" class="form-control"
+                                   placeholder="Pikkuskraadid" id="longitude">
                         </div>
 
                         <div class="d-md-flex justify-content-md-end mt-3">
@@ -68,12 +73,13 @@ export default {
         return {
 
             selectedRegionId: 0,
-            successMessage:'',
+            selectedCityId: 0,
+            successMessage: '',
 
             addressInput: {
                 regionId: 0,
                 cityId: 0,
-                companyId: 0,
+                userId: sessionStorage.getItem('userId'),
                 addressName: '',
                 street: '',
                 streetNumber: '',
@@ -89,21 +95,22 @@ export default {
         addNewAddress() {
             this.$http.post("/address", this.addressInput
             ).then(response => {
-                this.successMessage='Uus aadress lisatud'
+
+
                 router.push({name: 'newOfferRoute'})
+
             }).catch(error => {
                 router.push({name: 'errorRoute'})
 
             })
         },
-
-
         setSelectedRegionId(selectedRegionId) {
             this.selectedRegionId = selectedRegionId
-
         },
+        setSelectedCityId(selectedCityId) {
+            this.selectedCityId = selectedCityId
+        },
+    },
 
-
-    }
 }
 </script>

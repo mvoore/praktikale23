@@ -32,8 +32,8 @@ export default {
     },
     getAddresses() {
       this.$http.get("/address", {
-        params:{
-
+        params: {
+          userId: this.userId
         }
       })
           .then(response => {

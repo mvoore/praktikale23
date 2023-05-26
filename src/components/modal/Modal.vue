@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "Modal"
+  name: 'Modal',
   props: {
     closeButtonName: String
   },

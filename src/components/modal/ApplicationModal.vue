@@ -19,9 +19,8 @@ import router from "@/router";
 export default {
   name: 'ApplicationModal',
   components: {Modal},
-  methods:{
+  methods: {
     ApplicationAdded() {
-      sessionStorage.clear()
       this.$refs.modalRef.closeModal()
       this.$emit('event-update-nav-menu')
       router.push({name: 'homeRoute'})

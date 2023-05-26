@@ -9,7 +9,7 @@ import InternshipsView from "@/views/InternshipsView.vue";
 import NewOfferView from "@/views/NewOfferView.vue";
 import KKKView from "@/views/KKKView.vue";
 import ContactView from "@/views/ContactView.vue";
-import ApplyView from "@/views/ApplyView.vue";
+import ApplicationView from "@/views/ApplicationView.vue";
 
 const routes = [
   {
@@ -49,7 +49,6 @@ const routes = [
     name: 'internshipsRoute',
     component: InternshipsView
   },
-
   {
     path: '/new-offer',
     name: 'newOfferView',
@@ -69,9 +68,9 @@ const routes = [
   },
 
   {
-    path: '/apply',
-    name: 'applyRoute',
-    component: ApplyView
+    path: '/application',
+    name: 'applicationRoute',
+    component: ApplicationView
   },
 
 ]

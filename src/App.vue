@@ -8,7 +8,7 @@
         <router-link to="/kontakt">Logi välja</router-link> |
         <router-link to="/internships">Praktika pakkumised</router-link>|
         <router-link to="/customer">Pakkuja Home</router-link>|
-        <router-link to="/apply">Kandideerimine Home</router-link>
+        <router-link to="/application">Kandideerimine Home</router-link>
     </nav>
 <!--    <nav class=" justify-content-center">-->
 <!--        <router-link to="/kkk">KKK</router-link> |-->
@@ -16,6 +16,13 @@
 <!--    </nav>-->
     <router-view/>
 </template>
+
+<scrip>
+
+
+</scrip>
+
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -38,5 +45,3 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
-<script setup>
-</script>

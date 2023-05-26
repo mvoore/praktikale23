@@ -71,9 +71,9 @@ export default {
             successMessage:'',
 
             addressInput: {
-                regionId: '',
-                cityId: '',
-                companyId: '',
+                regionId: 0,
+                cityId: 0,
+                companyId: 0,
                 addressName: '',
                 street: '',
                 streetNumber: '',

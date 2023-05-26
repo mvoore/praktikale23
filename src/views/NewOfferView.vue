@@ -11,13 +11,6 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
-
-    </div>
-
-  </div>
-
 
     <div class="container">
         <div class="row">
@@ -27,15 +20,7 @@
                 <div class="input-group mb-3 ">
                     <input type="text" class="form-control" placeholder="Praktikakoha pealkiri" id="title">
                 </div>
-                <div class="input-group mb-3">
-                    <select  class="form-select" id="Address">
-                        <option selected value="0">Kõik aadressid</option>
-                        <option>Aadress1
-                        </option>
-
-
-                    </select>
-                </div>
+              <AddressesDropdown/>
 
                 <p >
                     <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
@@ -87,10 +72,11 @@
 import router from "@/router";
 import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
 import AddressInput from "@/components/AddressInput.vue";
+import AddressesDropdown from "@/views/AddressesDropdown.vue";
 
 export default {
     name: "NewOfferView",
-    components: { AddressInput, CategoriesDropdown},
+    components: {AddressesDropdown, AddressInput, CategoriesDropdown},
 
     data() {
         return {

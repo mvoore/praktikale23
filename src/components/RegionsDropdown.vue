@@ -1,6 +1,5 @@
 <template>
 
-
     <select v-model="selectedRegionId" @change="emitSelectedRegionId" class="form-select"
             aria-label="Default select example">
         <option selected value="0">Kõik asukohad</option>
@@ -29,7 +28,6 @@ export default {
     },
 
     methods: {
-
 
         emitSelectedRegionId() {
             this.$emit('event-emit-selected-region-id', Number(this.selectedRegionId))

@@ -72,7 +72,7 @@
 import router from "@/router";
 import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
 import AddressInput from "@/components/AddressInput.vue";
-import AddressesDropdown from "@/views/AddressesDropdown.vue";
+import AddressesDropdown from "@/components/AddressesDropdown.vue";
 
 export default {
     name: "NewOfferView",

@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     emitSelectedAddressId() {
-      this.emitSelectedAddressId('event-emit-selected-address-id', Number(this.selectedAddressId))
+        this.$emit('event-emit-selected-address-id', Number(this.selectedAddressId))
     },
     getAddresses() {
       this.$http.get("/address", {

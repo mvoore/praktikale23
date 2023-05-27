@@ -17,7 +17,7 @@
       <td>{{ internship.regionName }}</td>
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.companyName }}</td>
-      <td>{{ internship.title }}</td>
+      <td>{{ internship.title }} link {{internship.internshipId}}</td>
       <td>{{ internship.dateAdded }}</td>
       <td>{{ internship.imageData }}</td>
     </tr>

@@ -3,13 +3,19 @@
 </head>
 <template>
     <nav class=" justify-content-center">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/intern">Intern Home</router-link> |
-        <router-link to="/kontakt">Logi välja</router-link> |
-        <router-link to="/internships">Praktika pakkumised</router-link>|
-        <router-link to="/customer">Pakkuja Home</router-link>|
-        <router-link to="/application">Kandideerimine Home</router-link>|
+        <router-link to="/">Home</router-link>
+        |
+        <router-link to="/intern">Intern Home</router-link>
+        |
+        <router-link to="/internships">Praktika pakkumised</router-link>
+        |
+        <router-link to="/customer">Pakkuja Home</router-link>
+        |
+        <router-link to="/application">Kandideerimine Home</router-link>
+        |
         <router-link to="/new-offer">Praktika lisamine</router-link>
+        |
+        <router-link to="" @click="handleLogout">Logi välja</router-link>
     </nav>
     <LogoutModal ref="logoutModalRef" @event-update-nav-menu="updateNavMenu"/>
 
@@ -17,34 +23,56 @@
 <!--        <router-link to="/kkk">KKK</router-link> |-->
 <!--        <router-link to="/contact">Kontakt</router-link>-->
 <!--    </nav>-->
-    <router-view/>
+    <router-view @event-update-nav-menu="updateNavMenu" />
 </template>
 
-<scrip>
+<script>
+import Modal from "@/components/modal/Modal.vue";
+import LogoutModal from "@/components/modal/LogoutModal.vue";
+
+export default {
+    components: {LogoutModal, Modal},
+    data() {
+        return {
+            roleName: sessionStorage.getItem('roleName'),
+            userId: sessionStorage.getItem('userId')
+        }
+        },
+    methods: {
+        updateNavMenu(){
+            this.userId= sessionStorage.getItem('userId')
+            this.roleName= sessionStorage.getItem('roleName')
+        },
+            handleLogout(){
+            this.$refs.logoutModalRef.$refs.modalRef.openModal()
+        },
+    }
+
+}
 
 
-</scrip>
+</script>
 
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 }
 
 nav {
-  padding: 30px;
+    padding: 30px;
 }
 
 nav a {
-  font-weight: bold;
-  color: #2c3e50;
+    font-weight: bold;
+    color: #2c3e50;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+    color: #42b983;
 }
 </style>

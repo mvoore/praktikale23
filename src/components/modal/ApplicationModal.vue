@@ -1,10 +1,10 @@
 <template>
-  <Modal ref="modalRef" close-button-name="Sulge">
+  <Modal ref="modalRef" close-button-name="Tagasi">
     <template #header>
-      Aitäh!
+      Kandideerimise avalduse esitamine.
     </template>
     <template #body>
-      Sinu kandideerimise avaldus on saadetud.
+      Oled kindel, et soovid avalduse esitada?
     </template>
     <template #footer>
       <button @click="ApplicationAdded" type="button" class="btn btn-primary">Jah</button>
@@ -23,7 +23,7 @@ export default {
     ApplicationAdded() {
       this.$refs.modalRef.closeModal()
       this.$emit('event-update-nav-menu')
-      router.push({name: 'homeRoute'})
+      router.push({name: 'internshipsRoute'})
     },
   }
 }

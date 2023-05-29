@@ -25,12 +25,21 @@
                 <p>Nimi:</p>
                 <p>Email:</p>
             </div>
-            <div class=" mt-3 text-start">
-                Lisa CV
-                <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
-                <br>
-                Lisa motivatsioonikiri
-                <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
+            <div class=" mt-3 text-center">
+                <div>
+                    <form @submit.prevent="submitForm">
+                        <label for="cv">Lisa CV:</label>
+                        <input type="file" id="cv" ref="fileInput" @change="handleFileUpload">
+                        <button type="submit">Salvesta</button>
+                    </form>
+                </div>
+                <div>
+                    <form @submit.prevent="submitForm">
+                        <label for="cv">Lisa motivatsioonikiri:</label>
+                        <input type="file" id="cv" ref="fileInput" @change="handleFileUpload">
+                        <button type="submit">Salvesta</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -54,4 +63,6 @@
 export default {
     name: "internView"
 }
+
+
 </script>

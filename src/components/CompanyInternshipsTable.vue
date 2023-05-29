@@ -13,7 +13,7 @@
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.title }}</td>
       <td>{{ internship.dateAdded }}</td>
-      <td></td>
+      <td><font-awesome-icon :icon="['far', 'pen-to-square']" /></td>
     </tr>
     </tbody>
   </table>

@@ -7,7 +7,12 @@
     <p>Kontakt:</p>
     <p>E-mail {{ company.email }}</p>
     <p>Telefon {{ company.phoneNumber }}</p>
-    <p>Aadressid {{}}</p>
+    <p>Aadressid:
+      <ul v-for="companyAddress in companyAddresses" :key="companyAddress.addressId">
+        <li>{{ companyAddress.street }}, {{ companyAddress.streetNumber }}, {{ companyAddress.cityName }}, {{companyAddress.postalCode }}, {{ companyAddress.regionName }}</li>
+      </ul>
+    </p>
+
   </div>
 </template>
 <script>
@@ -24,7 +29,16 @@ export default {
         phoneNumber: "",
         email: ""
       },
-
+      companyAddresses: [
+        {
+          addressId: 0,
+          regionName: "",
+          cityName: "",
+          street: "",
+          streetNumber: 0,
+          postalCode: 0,
+        }
+      ]
     }
   },
   methods: {
@@ -40,10 +54,23 @@ export default {
         router.push({name: 'errorRoute'})
       })
     },
+    getCompanyAddresses: function () {
+      this.$http.get("/address/company-addresses", {
+            params: {
+              userId: this.userId,
+            }
+          }
+      ).then(response => {
+        this.companyAddresses = response.data
+      }).catch(error => {
+        router.push({name: 'errorRoute'})
+      })
+    },
 
   },
   beforeMount() {
-    this.getCompany()
+    this.getCompany();
+        this.getCompanyAddresses()
   }
 }
 </script>

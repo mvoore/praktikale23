@@ -13,7 +13,7 @@
                 <p>Kontakt:</p>
                 <p>E-mail {{company.email}}</p>
                 <p>Telefon {{company.phoneNumber}}</p>
-                <p>Aadress</p>
+                <p>Aadressid {{}}</p>
               </div>
             </div>
           </div>
@@ -54,6 +54,7 @@ export default {
         phoneNumber: "",
         email: ""
       }
+
     }
   },
   methods: {

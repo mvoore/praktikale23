@@ -18,24 +18,24 @@
 
 
                 <div class="input-group mb-3 ">
-                    <input type="text" class="form-control" placeholder="Praktikakoha pealkiri" id="title">
+                    <input v-model="addNewOffer.title" type="text" class="form-control"
+                           placeholder="Praktikakoha pealkiri" id="title">
                 </div>
-              <AddressesDropdown/>
+                <AddressesDropdown @event-emit-selected-address-id="setAddressId"/>
 
-                <p >
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
-                       aria-expanded="false" aria-controls="multiCollapseExample1">Loo uus aadress</a>
+                <p>
+                    <button @click="handleAddNewAddress" type="button" class="btn btn-primary">Lisa uus aadress</button>
                 </p>
-                <AddressInput />
-
+                <AddressModal ref="addressModalRef"/>
 
 
                 <div class="col mb-3 mt-3">
-                    <CategoriesDropdown @event-emit-selected-category-id="setSelectedCategoryId"/>
+                    <CategoriesDropdown @event-emit-selected-category-id="setCategoryId"/>
                 </div>
 
                 <div class="input-group">
-                    <textarea class="form-control" placeholder="Praktikakoha kirjeldus/info"
+                    <textarea v-model="addNewOffer.description" class="form-control"
+                              placeholder="Praktikakoha kirjeldus/info"
                               id="description" aria-label="With textarea" rows="10" cols="50"></textarea>
                 </div>
 
@@ -73,51 +73,54 @@ import router from "@/router";
 import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
 import AddressInput from "@/components/AddressInput.vue";
 import AddressesDropdown from "@/components/AddressesDropdown.vue";
+import AddressModal from "@/components/modal/AddressModal.vue";
 
 export default {
     name: "NewOfferView",
-    components: {AddressesDropdown, AddressInput, CategoriesDropdown},
+    components: {AddressModal, AddressesDropdown, AddressInput, CategoriesDropdown},
 
     data() {
         return {
 
             selectedCategoryId: 0,
-            selectedAddressId:0,
+            selectedAddressId: 0,
 
-            newInternshipRequest: {
+            addNewOffer: {
                 userId: sessionStorage.getItem('userId'),
+                addressId: 0,
                 title: '',
-                categoryId: '',
+                categoryId: 0,
                 description: '',
                 imageData: ''
+
 
             }
         }
     },
     methods: {
         addInternship: function () {
-            this.$http.post("/new-offer", this.newInternshipRequest
+            this.$http.post("/new-offer", this.addNewOffer
             ).then(response => {
-                const responseBody = response.data
                 router.push({name: 'customerRoute'})
 
             }).catch(error => {
-                const errorResponseBody = error.response.data
                 router.push({name: 'errorRoute'})
 
             })
 
 
         },
-        setSelectedCategoryId(selectedCategoryId) {
-            this.selectedCategoryId = selectedCategoryId
+        setCategoryId(selectedCategoryId) {
+            this.addNewOffer.categoryId = selectedCategoryId
         },
 
-        setSelectedCityId(selectedCityId) {
-            this.selectedCityId =selectedCityId
+        setAddressId(selectedAddressId) {
+            this.addNewOffer.addressId = selectedAddressId
         },
 
-
+        handleAddNewAddress() {
+            this.$refs.addressModalRef.$refs.modalRef.openModal()
+        },
 
     }
 

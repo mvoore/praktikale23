@@ -1,5 +1,5 @@
 <template>
-    <Modal ref="modalRef" close-button-name="Ei" @event-close-modal="handleCloseModal">
+    <Modal ref="modalRef" close-button-name="Ei">
         <template #header>
             Leheküljelt välja logimine
         </template>
@@ -12,7 +12,7 @@
     </Modal>
 </template>
 
-    <script>
+<script>
     import Modal from "@/components/modal/Modal.vue";
     import router from "@/router";
 
@@ -23,12 +23,9 @@
                 executeLogout() {
                     sessionStorage.clear()
                     this.$refs.modalRef.closeModal()
-                },
-                handleCloseModal() {
-                        this.$emit('event-update-nav-menu')
-                        router.push({name: 'homeRoute'})
-
-            }
+                    this.$emit('event-update-nav-menu')
+                    router.push({name:'homeRoute'})
+            },
         }
     }
     </script>

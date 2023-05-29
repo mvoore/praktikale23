@@ -2,11 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col col-7 mt-3 text-start">
-                <h2 id="username">Tere, {{username}}</h2>
+                <h2 id="username">Tere, {{ username }}</h2>
             </div>
         </div>
     </div>
     <div class="container">
+        <div class="row">
+            <div class="col col-7 mt-3 text-start">
+                <router-link to="/internships">
+                    <button type="button" class="btn btn-outline-primary">Vaata praktika pakkumisi</button>
+                </router-link>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
         <div class="row">
             <div class="col mt-3 text-start">
                 <h4>Andmed:
@@ -15,18 +25,16 @@
                 <p>Nimi:</p>
                 <p>Email:</p>
             </div>
-            <div class="col col-5 text-end">
+            <div class=" mt-3 text-start">
                 Lisa CV
                 <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
-                <br>
                 <br>
                 Lisa motivatsioonikiri
                 <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
             </div>
         </div>
-        <router-link to="/internships">Vaata praktika pakkumisi</router-link>
     </div>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col col-6 text-start">
                 Minu praktika kandideerimised:
@@ -37,8 +45,8 @@
             </div>
         </div>
     </div>
-<!--    <button @click="addCv" type="button" class="btn btn-outline-success">Lisa CV</button>-->
-<!--    <button @click="addCoverLetter" type="button" class="btn btn-outline-success">Lisa motivatsioonikiri</button>-->
+  <!--    <button @click="addCv" type="button" class="btn btn-outline-success">Lisa CV</button>-->
+  <!--    <button @click="addCoverLetter" type="button" class="btn btn-outline-success">Lisa motivatsioonikiri</button>-->
 
 </template>
 

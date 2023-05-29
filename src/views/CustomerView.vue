@@ -5,22 +5,14 @@
         <div>
           <div class="container">
             <div class="row">
-              <div class="col mt-3 text-start">
-                <h3>Andmed:
-                  <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/>
-                </h3>
-                <p>{{ company.companyName }}</p>
-                <p>Kontakt:</p>
-                <p>E-mail {{company.email}}</p>
-                <p>Telefon {{company.phoneNumber}}</p>
-                <p>Aadressid {{}}</p>
-              </div>
+              <CompanyDataComponent ref="companyDataComponentRef"/>
             </div>
           </div>
           <div class="container">
             <div class="row">
               <div class="col col-6">
-                Minu aktiivsed pakkumised
+                <p> Minu aktiivsed pakkumised</p>
+                <CompanyInternshipsTable ref="companyInternshipsTableRef"/>
               </div>
               <div class="col col-6">
                 Minu mitteaktiivsed pakkumised
@@ -42,37 +34,19 @@
 
 <script>
 import router from "@/router";
+import CompanyInternshipsTable from "@/components/CompanyInternshipsTable.vue";
+import CompanyDataComponent from "@/components/CompanyDataComponent.vue";
 
 export default {
   name: "CustomerView",
+  components: {CompanyDataComponent, CompanyInternshipsTable},
   data() {
     return {
-      userId: sessionStorage.getItem('userId'),
-      company: {
-        companyId: 0,
-        companyName: "",
-        phoneNumber: "",
-        email: ""
-      }
-
+      userId: sessionStorage.getItem('userId')
     }
   },
   methods: {
-    getCompany: function () {
-      this.$http.get("/company", {
-            params: {
-              userId: this.userId,
-            }
-          }
-      ).then(response => {
-        this.company = response.data
-      }).catch(error => {
-        router.push({name: 'errorRoute'})
-      })
-    },
-  },
-  beforeMount() {
-    this.getCompany()
   }
+
 }
 </script>

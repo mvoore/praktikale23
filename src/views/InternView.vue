@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col col-7 mt-3 text-start">
                 <router-link to="/internships">
-                    <button type="button" class="btn btn-outline-primary">Vaata praktika pakkumisi</button>
+                    <button type="button" class="btn btn-outline-primary">Vaata kõiki praktika pakkumisi</button>
                 </router-link>
             </div>
         </div>
@@ -25,20 +25,21 @@
                 <p>Nimi:</p>
                 <p>Email:</p>
             </div>
-            <div class=" mt-3 text-center">
+            <div class=" mt-3 text-start">
                 <div>
-                    <form @submit.prevent="submitForm">
-                        <label for="cv">Lisa CV:</label>
-                        <input type="file" id="cv" ref="fileInput" @change="handleFileUpload">
-                        <button type="submit">Salvesta</button>
-                    </form>
+                    <label for="cv">Lisa CV:</label>
+                    <br>
+                    <CvInput @event-emit-base64=""/>
+                    <button type="submit" class="btn btn-outline-primary btn-sm text-end">Salvesta CV</button>
+
                 </div>
+                <br>
+                <br>
                 <div>
-                    <form @submit.prevent="submitForm">
-                        <label for="cv">Lisa motivatsioonikiri:</label>
-                        <input type="file" id="cv" ref="fileInput" @change="handleFileUpload">
-                        <button type="submit">Salvesta</button>
-                    </form>
+                    <label for="coverletter">Lisa motivatsioonikiri:</label>
+                    <br>
+                    <CoverletterInput @event-emit-base64=""/>
+                    <button type="submit" class="btn btn-outline-primary btn-sm">Salvesta motivatsioonikiri</button>
                 </div>
             </div>
         </div>
@@ -60,8 +61,15 @@
 </template>
 
 <script>
+import CvInput from "@/components/CvInput.vue";
+import CoverletterInput from "@/components/CoverletterInput.vue";
+
 export default {
-    name: "internView"
+    name: "internView",
+    components: {
+        CvInput,
+        CoverletterInput
+    }
 }
 
 

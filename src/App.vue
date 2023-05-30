@@ -34,14 +34,12 @@ export default {
     components: {LogoutModal, Modal},
     data() {
         return {
-            roleName: sessionStorage.getItem('roleName'),
-            userId: sessionStorage.getItem('userId')
+            roleId: sessionStorage.getItem('roleId')
         }
         },
     methods: {
         updateNavMenu(){
-            this.userId= sessionStorage.getItem('userId')
-            this.roleName= sessionStorage.getItem('roleName')
+            this.roleId= sessionStorage.getItem('roleId')
         },
             handleLogout(){
             this.$refs.logoutModalRef.$refs.modalRef.openModal()

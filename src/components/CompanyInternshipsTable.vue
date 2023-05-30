@@ -13,7 +13,7 @@
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.title }}</td>
       <td>{{ internship.dateAdded }}</td>
-        <td><button @click="goToEditInternshipView(internship.internshipId)"><font-awesome-icon :icon="['far', 'pen-to-square']" /></button></td>
+      <td><button class="hoverable-icon" style="margin-left: 10px" @click="goToEditInternshipView(internship.internshipId)"><font-awesome-icon :icon="['far', 'pen-to-square']" /></button></td>
     </tr>
     </tbody>
   </table>
@@ -51,9 +51,9 @@ export default {
         router.push({name: 'errorRoute'})
       })
     },
-      goToEditInternshipView(internshipId) {
-          this.$router.push({ name: 'newOfferRoute', query: { internshipId: internshipId } })
-      },
+    goToEditInternshipView(internshipId) {
+      this.$router.push({ name: 'newOfferRoute', query: { internshipId: internshipId } })
+    },
 
   },
   beforeMount() {

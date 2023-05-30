@@ -6,11 +6,12 @@
 }
 
 body {
-    background-image: url("@/assets/Sky.jpg");
+    background-image: url("@/assets/Darktiles.jpg");
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     background-position: v-bind();
     height: 100vh;
+    color: floralwhite;
 }
 
 .footermenu {
@@ -32,4 +33,37 @@ body {
 }
 
 
+.hoverable-icon {
+    cursor: pointer;
+}
 
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: darkslategrey;
+}
+
+#header {
+    font-weight: bold;
+
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: floralwhite;
+}
+
+nav {
+    padding: 30px;
+}
+
+nav a {
+    font-weight: bold;
+    color: blanchedalmond;
+}
+
+nav a.router-link-exact-active {
+    color: darkorange;
+}

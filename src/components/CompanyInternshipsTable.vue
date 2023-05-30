@@ -13,7 +13,9 @@
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.title }}</td>
       <td>{{ internship.dateAdded }}</td>
-      <td><button class="hoverable-icon" style="margin-left: 10px" @click="goToEditInternshipView(internship.internshipId)"><font-awesome-icon :icon="['far', 'pen-to-square']" /></button></td>
+      <td>
+          <font-awesome-icon @click="goToEditInternshipView(internship.internshipId)" class="hoverable-icon" :icon="['far', 'pen-to-square']" />
+      </td>
     </tr>
     </tbody>
   </table>

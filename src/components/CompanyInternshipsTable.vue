@@ -5,7 +5,7 @@
       <th scope="col">Valdkond</th>
       <th scope="col">Ametikoht</th>
       <th scope="col">Lisamise kuupäev</th>
-      <th scope="col"> </th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -13,7 +13,11 @@
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.title }}</td>
       <td>{{ internship.dateAdded }}</td>
-      <td><font-awesome-icon :icon="['far', 'pen-to-square']" /></td>
+      <td>
+        <span class="hoverable-icon" style="margin-left: 10px">
+        <font-awesome-icon :icon="['far', 'pen-to-square']"/>
+          </span>
+      </td>
     </tr>
     </tbody>
   </table>

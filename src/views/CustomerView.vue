@@ -11,11 +11,11 @@
           <div class="container">
             <div class="row">
               <div class="col col-6">
-                <p> Minu aktiivsed pakkumised</p>
+                <p><strong>Minu aktiivsed pakkumised</strong></p>
                 <CompanyInternshipsTable ref="companyInternshipsTableRef"/>
               </div>
               <div class="col col-6">
-                Minu mitteaktiivsed pakkumised
+                <p><strong> Minu mitteaktiivsed pakkumised</strong></p>
                 <p></p>
               </div>
             </div>
@@ -45,8 +45,7 @@ export default {
       userId: sessionStorage.getItem('userId')
     }
   },
-  methods: {
-  }
+  methods: {}
 
 }
 </script>

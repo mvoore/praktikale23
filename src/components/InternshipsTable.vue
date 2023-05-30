@@ -7,9 +7,7 @@
       <th scope="col">Ettevõtte nimi</th>
       <th scope="col">Ametikoht</th>
       <th scope="col">Lisamise kuupäev</th>
-      <th scope="col">
-        <font-awesome-icon :icon="['fas', 'image']"/>
-      </th>
+      <th scope="col">Lisainfo</th>
     </tr>
     </thead>
     <tbody>
@@ -17,9 +15,9 @@
       <td>{{ internship.regionName }}</td>
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.companyName }}</td>
-      <td>{{ internship.title }} link {{internship.internshipId}}</td>
+      <td>{{ internship.title }} </td>
       <td>{{ internship.dateAdded }}</td>
-      <td>{{ internship.imageData }}</td>
+      <td>  Pakkumine {{internship.internshipId}}</td>
     </tr>
     </tbody>
   </table>

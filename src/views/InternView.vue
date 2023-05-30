@@ -43,7 +43,6 @@
                 </div>
             </div>
         </div>
-        <router-link to="/internships">Vaata praktika pakkumisi</router-link>
     </div>
     <div class="container mt-5">
         <div class="row">

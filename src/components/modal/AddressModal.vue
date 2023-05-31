@@ -16,7 +16,7 @@
 <script>
 import Modal from "@/components/modal/Modal.vue";
 import router from "@/router";
-import AddressInput from "@/components/company/address/AddressInput.vue";
+import AddressInput from "@/components/AddressInput.vue";
 
 export default {
   name: 'AddressModal',

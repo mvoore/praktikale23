@@ -58,8 +58,8 @@
 </template>
 <script>
 import router from "@/router";
-import RegionsDropdown from "@/components/company/address/RegionsDropdown.vue";
-import CityDropdown from "@/components/company/address/CityDropdown.vue";
+import RegionsDropdown from "@/components/RegionsDropdown.vue";
+import CityDropdown from "@/components/CityDropdown.vue";
 
 export default {
     name: 'AddressInput',

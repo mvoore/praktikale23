@@ -67,8 +67,8 @@
 
 
 import router from "@/router";
-import CategoriesDropdown from "@/components/company/address/CategoriesDropdown.vue";
-import AddressesDropdown from "@/components/company/address/AddressesDropdown.vue";
+import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
+import AddressesDropdown from "@/components/AddressesDropdown.vue";
 import AddressModal from "@/components/modal/AddressModal.vue";
 import {useRoute} from "vue-router";
 import ImageInput from "@/components/ImageInput.vue";

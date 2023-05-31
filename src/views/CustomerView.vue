@@ -34,8 +34,8 @@
 
 <script>
 import router from "@/router";
-import CompanyInternshipsTable from "@/components/company/CompanyInternshipsTable.vue";
-import CompanyDataComponent from "@/components/company/CompanyDataComponent.vue";
+import CompanyInternshipsTable from "@/components/CompanyInternshipsTable.vue";
+import CompanyDataComponent from "@/components/CompanyDataComponent.vue";
 
 export default {
   name: "CustomerView",

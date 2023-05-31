@@ -12,11 +12,11 @@
             <div class="row">
               <div class="col col-6">
                 <p><strong>Minu aktiivsed pakkumised</strong></p>
-                <CompanyInternshipsTable ref="companyInternshipsTableRef"/>
+                <CompanyActiveInternshipsTable ref="companyActiveInternshipsTableRef"/>
               </div>
               <div class="col col-6">
                 <p><strong> Minu mitteaktiivsed pakkumised</strong></p>
-                <p></p>
+                <CompanyInactiveInternshipsTable ref="companyInactiveInternshipsTableRef"/>
               </div>
             </div>
           </div>
@@ -34,12 +34,14 @@
 
 <script>
 import router from "@/router";
-import CompanyInternshipsTable from "@/components/CompanyInternshipsTable.vue";
+import CompanyInternshipsTable from "@/components/CompanyActiveInternshipsTable.vue";
 import CompanyDataComponent from "@/components/CompanyDataComponent.vue";
+import CompanyInactiveInternshipsTable from "@/components/CompanyInactiveInternshipsTable.vue";
+import CompanyActiveInternshipsTable from "@/components/CompanyActiveInternshipsTable.vue";
 
 export default {
   name: "CustomerView",
-  components: {CompanyDataComponent, CompanyInternshipsTable},
+  components: {CompanyActiveInternshipsTable, CompanyInactiveInternshipsTable, CompanyDataComponent},
   data() {
     return {
       userId: sessionStorage.getItem('userId')

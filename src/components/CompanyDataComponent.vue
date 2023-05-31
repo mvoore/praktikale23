@@ -12,10 +12,11 @@
     <p>E-mail {{ company.email }}</p>
     <p>Telefon {{ company.phoneNumber }}</p>
     <p><strong>Aadressid</strong>
-      <span class="hoverable-icon" style="margin-left: 10px">
+      <span class="hoverable-icon" v-on:click="handleAddNewAddress" style="margin-left: 10px">
       <font-awesome-icon :icon="['far', 'pen-to-square']"/>
       </span>
-        :
+      <AddressModal ref="addressModalRef"/>
+      :
       <ul v-for="companyAddress in companyAddresses" :key="companyAddress.addressId">
         <li>{{ companyAddress.street }}, {{ companyAddress.streetNumber }}, {{ companyAddress.cityName }},
           {{ companyAddress.postalCode }}, {{ companyAddress.regionName }}
@@ -28,10 +29,11 @@
 <script>
 import router from "@/router";
 import CompanyInfoModal from "@/components/modal/CompanyInfoModal.vue";
+import AddressModal from "@/components/modal/AddressModal.vue";
 
 export default {
   name: 'CompanyDataComponent',
-  components: {CompanyInfoModal},
+  components: {AddressModal, CompanyInfoModal},
 
   data() {
     return {
@@ -86,6 +88,9 @@ export default {
     },
     handleAddCompanyInfo() {
       this.$refs.companyInfoModalRef.$refs.modalRef.openModal()
+    },
+    handleAddNewAddress() {
+      this.$refs.addressModalRef.$refs.modalRef.openModal()
     },
 
 

@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="internship in companyInternships" :key="internship.internshipId">
+    <tr v-for="internship in companyActiveInternships" :key="internship.internshipId">
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.title }}</td>
       <td>{{ internship.dateAdded }}</td>
@@ -22,12 +22,12 @@
 import router from '@/router';
 
 export default {
-  name: 'CompanyInternshipsTable',
+  name: 'CompanyActiveInternshipsTable',
 
   data() {
     return {
       userId: sessionStorage.getItem('userId'),
-      companyInternships: [
+      companyActiveInternships: [
         {
           internshipId: 0,
           categoryName: "",
@@ -39,14 +39,14 @@ export default {
     }
   },
   methods: {
-    getCompanyInternships: function () {
-      this.$http.get("/company-internships", {
+    getCompanyActiveInternships: function () {
+      this.$http.get("/active-internships", {
             params: {
               userId: this.userId,
             }
           }
       ).then(response => {
-        this.companyInternships = response.data
+        this.companyActiveInternships = response.data
       }).catch(error => {
         router.push({name: 'errorRoute'})
       })
@@ -57,7 +57,7 @@ export default {
 
   },
   beforeMount() {
-    this.getCompanyInternships()
+    this.getCompanyActiveInternships()
   }
 }
 </script>

@@ -13,7 +13,7 @@
         <td>{{ internship.categoryName }}</td>
         <td>{{ internship.title }}</td>
         <td>{{ internship.dateAdded }}</td>
-        <td><button class="hoverable-icon" style="margin-left: 10px" @click="goToEditInternshipView(internship.internshipId)"><font-awesome-icon :icon="['far', 'pen-to-square']" /></button></td>
+      <td><font-awesome-icon :icon="['far', 'square-plus']" /></td>
       </tr>
       </tbody>
     </table>

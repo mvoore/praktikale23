@@ -9,11 +9,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="internship in companyInternships" :key="internship.internshipId">
+    <tr v-for="internship in companyActiveInternships" :key="internship.internshipId">
       <td>{{ internship.categoryName }}</td>
       <td>{{ internship.title }}</td>
       <td>{{ internship.dateAdded }}</td>
-      <td><font-awesome-icon :icon="['far', 'pen-to-square']" /></td>
+      <td>
+          <font-awesome-icon @click="goToEditInternshipView(internship.internshipId)" class="hoverable-icon" :icon="['far', 'pen-to-square']" />
+      </td>
     </tr>
     </tbody>
   </table>
@@ -22,12 +24,12 @@
 import router from '@/router';
 
 export default {
-  name: 'CompanyInternshipsTable',
+  name: 'CompanyActiveInternshipsTable',
 
   data() {
     return {
       userId: sessionStorage.getItem('userId'),
-      companyInternships: [
+      companyActiveInternships: [
         {
           internshipId: 0,
           categoryName: "",
@@ -39,22 +41,25 @@ export default {
     }
   },
   methods: {
-    getCompanyInternships: function () {
-      this.$http.get("/company-internships", {
+    getCompanyActiveInternships: function () {
+      this.$http.get("/active-internships", {
             params: {
               userId: this.userId,
             }
           }
       ).then(response => {
-        this.companyInternships = response.data
+        this.companyActiveInternships = response.data
       }).catch(error => {
         router.push({name: 'errorRoute'})
       })
     },
+    goToEditInternshipView(internshipId) {
+      this.$router.push({ name: 'newOfferRoute', query: { internshipId: internshipId } })
+    },
 
   },
   beforeMount() {
-    this.getCompanyInternships()
+    this.getCompanyActiveInternships()
   }
 }
 </script>

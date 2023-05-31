@@ -3,7 +3,8 @@
     <div class="row col-6">
       <h2>Praktikale kandideerimine</h2>
       <div class="input-group mb-3 ">
-        <input type="text" class="form-control" placeholder="Automaatselt ettevõtte meil" id="title">
+          <p style="font-weight: bold; font-size: larger;" >E-mail: {{ detailsFromInternship.companyEmail }}</p>
+
       </div>
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Sisesta nimi" id="companyName">
@@ -46,17 +47,36 @@ export default {
     data() {
       return {
           internshipId: Number(useRoute().query.internshipId),
+          detailsFromInternship:{
+              internshipId: 0,
+              companyEmail: ''
+          }
       }
     },
   methods: {
+
+      getCompanyEmail: function () {
+          this.$http.get("/application", {
+                  params: {
+                      internshipId: this.internshipId,
+                  }
+              }
+          ).then(response => {
+              this.detailsFromInternship= response.data
+          }).catch(error => {
+              const errorResponseBody = error.response.data
+          })
+      },
+
+
+
     handleStartNewApplication() {
       this.$refs.applicationModalRef.$refs.modalRef.openModal()
     },
-  }
+  },
+    mounted() {
+        this.getCompanyEmail();
+    },
 
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import SortDropdown from "@/components/SortDropdown.vue";
-import RegionsDropdown from "@/components/RegionsDropdown.vue";
-import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
-import InternshipsTable from "@/components/InternshipsTable.vue";
+import SortDropdown from "@/components/company/SortDropdown.vue";
+import RegionsDropdown from "@/components/company/address/RegionsDropdown.vue";
+import CategoriesDropdown from "@/components/company/address/CategoriesDropdown.vue";
+import InternshipsTable from "@/components/intern/InternshipsTable.vue";
 
 export default {
   name: "InternshipsView",

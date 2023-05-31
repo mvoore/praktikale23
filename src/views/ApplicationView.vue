@@ -38,10 +38,16 @@
 
 <script>
 import ApplicationModal from "@/components/modal/ApplicationModal.vue";
+import {useRoute} from "vue-router";
 
 export default {
   name: "ApplicationView",
   components: {ApplicationModal},
+    data() {
+      return {
+          internshipId: Number(useRoute().query.internshipId),
+      }
+    },
   methods: {
     handleStartNewApplication() {
       this.$refs.applicationModalRef.$refs.modalRef.openModal()

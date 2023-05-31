@@ -52,7 +52,7 @@
                 </div>
 
                 <div>
-                    <ImageInput @event-emit-image-data="setImageData"/>
+                    <ImageInput  @event-emit-image-data="setImageData"/>
                 </div>
             </div>
 
@@ -67,8 +67,8 @@
 
 
 import router from "@/router";
-import CategoriesDropdown from "@/components/CategoriesDropdown.vue";
-import AddressesDropdown from "@/components/AddressesDropdown.vue";
+import CategoriesDropdown from "@/components/company/address/CategoriesDropdown.vue";
+import AddressesDropdown from "@/components/company/address/AddressesDropdown.vue";
 import AddressModal from "@/components/modal/AddressModal.vue";
 import {useRoute} from "vue-router";
 import ImageInput from "@/components/ImageInput.vue";
@@ -153,11 +153,9 @@ export default {
                     }
                 }
             ).then(response => {
-                let successMessage='Praktika pakkumine"'+this.internshipOffer.title+ '"muudetud'
                 router.push({name:'customerRoute'})
             }).catch(error => {
                 const errorResponseBody = error.response.data
-
             })
 
 

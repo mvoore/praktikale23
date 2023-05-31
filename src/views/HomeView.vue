@@ -22,8 +22,8 @@
       </div>
     </div>
     <div v-if="!userHasCompany">
-      <p>Palun lisa firma info.</p>
-      <button @click="handleEditCompanyInfo"></button>
+<!--      <p>Palun lisa firma info.</p>-->
+<!--      <button @click="handleEditCompanyInfo"></button>-->
     </div>
     <div class="row">
       <div class="col mt-3">
@@ -95,7 +95,7 @@ export default {
         sessionStorage.setItem('roleName', this.loginResponse.roleName)
 
 
-        if (this.loginResponse.companyId === 0) {
+        if (this.loginResponse.companyId === 0 && this.loginResponse.roleName === 'customer') {
           this.$refs.companyInfoModalRef.$refs.modalRef.openModal()
         } else {
           this.$emit('event-update-nav-menu');

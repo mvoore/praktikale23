@@ -18,6 +18,7 @@
 
     <div class="container mt-5">
         <div class="row">
+
             <div class="col col-4 mt-3 text-start">
                 <h4>Andmed:
                 </h4>
@@ -25,6 +26,7 @@
                     <span class="input-group-text" id="basic-addon1">Nimi</span>
                     <input v-model="internContact.fullName" type="text" class="form-control">
                 </div>
+
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Email</span>
                     <input v-model="internContact.email" type="text" class="form-control">
@@ -34,6 +36,11 @@
                         email
                     </button>
                 </div>
+            </div>
+            <div class="col col-4 mt-3 text-start ms-5" >
+             <h4>   Minu kandideerimised:</h4>
+                <InternActiveApplicationsTable/>
+
             </div>
             <div class=" mt-3 text-start">
                 <div>
@@ -61,11 +68,8 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col col-6 text-start">
-                Minu praktika kandideerimised:
-                <br>
-                <br>
-                <p> Esimene pakkumine</p>
-                <p> Teine pakkumine</p>
+
+
             </div>
         </div>
     </div>
@@ -77,11 +81,13 @@
 <script>
 import CvInput from "@/components/CvCoverletter/CvInput.vue";
 import CoverletterInput from "@/components/CvCoverletter/CoverletterInput.vue";
+import InternActiveApplicationsTable from "@/components/modal/InternActiveApplicationsTable.vue";
 
 
 export default {
     name: "internView",
     components: {
+        InternActiveApplicationsTable,
         CvInput,
         CoverletterInput
     },

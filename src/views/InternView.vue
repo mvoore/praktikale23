@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col col-7 mt-3 text-start">
                 <router-link to="/internships">
-                    <button type="button" class="btn btn-outline-primary">Vaata kõiki praktika pakkumisi</button>
+                    <button type="button" class="btn btn-primary">Vaata kõiki praktika pakkumisi</button>
                 </router-link>
             </div>
         </div>
@@ -20,7 +20,6 @@
         <div class="row">
             <div class="col col-4 mt-3 text-start">
                 <h4>Andmed:
-                    <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/>
                 </h4>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Nimi</span>

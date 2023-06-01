@@ -3,6 +3,7 @@
 </head>
 <template>
   <nav class=" justify-content-center">
+
     <router-link to="/">Home</router-link>
     |
     <router-link to="/intern">Intern Home</router-link>

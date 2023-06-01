@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+        <div class="col">
+            <AlertDanger v-if="errorMessage" :message="errorMessage"/>
+        </div>
         <div class="row justify-content-center">
             <div class="col mt-5">
                 <h3>Registreeri ennast siin: </h3>
@@ -47,9 +50,11 @@
 
 <script>
 import router from "@/router";
+import AlertDanger from "@/components/alert/AlertDanger.vue";
 
 export default {
     name: "SignUpView",
+    components: {AlertDanger},
 
     data() {
         return {
@@ -58,24 +63,26 @@ export default {
                 username: '',
                 password: '',
                 roleId: '',
-            }
-
+            },
+            errorMessage:''
         }
-
     },
     methods: {
         addNewUser: function () {
+            if (!this.newUserRequest.username|| !this.newUserRequest.password || !this.newUserRequest.roleId) {
+                this.errorMessage = 'Palun täida kõik väljad!'
+                return
+            }
+
             this.$http.post("/signup", this.newUserRequest
             ).then(response => {
                 const responseBody = response.data
                 router.push({name: 'homeRoute'})
-
             }).catch(error => {
                 const errorResponseBody = error.response.data
                 router.push({name: 'errorRoute'})
-
             })
-        },
+        }
 
     }
 

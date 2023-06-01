@@ -1,6 +1,6 @@
 
 <template>
-eeebuuuuu
+See on admini leht.
 </template>
 
 

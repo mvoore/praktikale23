@@ -4,22 +4,24 @@
             Praktikapakkumise info
         </template>
         <template #body>
-            <div class="row">
-                <div class="col text-start" id="title">
-                    <td><strong>Otsime:</strong> {{ internshipOffer.title }}</td>
-                </div>
-                <br>
-            </div>
-            <div class="row">
-                <div class="col text-start">
-                    <td><strong>Info: </strong>{{ internshipOffer.description }}</td>
-                </div>
-            </div>
             <div class="col">
                 <div class="internship-image">
                     <InternshipImage :image-data="internshipOffer.imageData"/>
                 </div>
             </div>
+            <div class="row">
+                <div class="col text-start" id="title">
+                    <td><strong>Otsime:</strong> {{ internshipOffer.title }}</td>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col text-start">
+                    <td><strong>Info: </strong>{{ internshipOffer.description }}</td>
+                </div>
+            </div>
+
         </template>
         <template #footer>
             <button @click="ApplyToInternship" type="button" class="btn btn-primary">Kandideeri!</button>

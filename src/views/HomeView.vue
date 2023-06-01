@@ -68,7 +68,7 @@ export default {
     login() {
       this.message = ''
       if (this.username === '' || this.password === '') {
-        this.message = 'Täida palun kõik väljad'
+        this.message = 'Palun täida kõik väljad!'
       } else {
         this.sendLoginRequest();
       }

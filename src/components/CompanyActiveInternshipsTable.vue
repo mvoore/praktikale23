@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     getCompanyActiveInternships: function () {
+
       this.$http.get("/active-internships", {
             params: {
               userId: this.userId,

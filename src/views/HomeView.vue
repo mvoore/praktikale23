@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  <CompanyInfoModal ref="companyInfoModalRef"/>
+  <AddCompanyInfoModal ref="addCompanyInfoModalRef" :user-id="loginResponse.userId"/>
 </template>
 
 
@@ -40,11 +40,11 @@
 
 import router from "@/router";
 import AlertDanger from "@/components/alert/AlertDanger.vue";
-import CompanyInfoModal from "@/components/modal/CompanyInfoModal.vue";
+import AddCompanyInfoModal from "@/components/modal/AddCompanyInfoModal.vue";
 
 export default {
   name: 'HomeView',
-  components: {CompanyInfoModal, AlertDanger},
+  components: {AddCompanyInfoModal, AlertDanger},
 
   data() {
     return {
@@ -93,22 +93,17 @@ export default {
         this.loginResponse = response.data
         sessionStorage.setItem('userId', this.loginResponse.userId)
         sessionStorage.setItem('roleName', this.loginResponse.roleName)
-
-
         if (this.loginResponse.companyId === 0 && this.loginResponse.roleName === 'customer') {
-          this.$refs.companyInfoModalRef.$refs.modalRef.openModal()
+          this.$refs.addCompanyInfoModalRef.$refs.modalRef.openModal(this.loginResponse.userId)
         } else {
           this.$emit('event-update-nav-menu');
           this.pushToRole();
         }
-
       }).catch(error => {
         this.errorResponse = error.response.data
         router.push({name: 'errorRoute'})
       })
     },
-  }
+  },
 }
-
-
 </script>

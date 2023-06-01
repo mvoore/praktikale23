@@ -1,11 +1,13 @@
 <template>
+  <AlertSuccess :message="successMessage"></AlertSuccess>
   <div class="container">
     <div class="row">
       <div class="col col-7 mt-3 text-start">
         <div>
           <div class="container">
             <div class="row">
-              <CompanyDataComponent ref="companyDataComponentRef"/>
+              <CompanyDataComponent ref="companyDataComponentRef"
+                                    @event-refresh-company-data-component="refreshCompanyDataComponent"/>
             </div>
           </div>
           <div class="container">
@@ -39,24 +41,40 @@
 import CompanyActiveInternshipsTable from "@/components/CompanyActiveInternshipsTable.vue";
 import CompanyDataComponent from "@/components/CompanyDataComponent.vue";
 import CompanyInactiveInternshipsTable from "@/components/CompanyInactiveInternshipsTable.vue";
+import AlertSuccess from "@/components/alert/AlertSuccess.vue";
 
 export default {
   name: "CustomerView",
-  components: {CompanyActiveInternshipsTable, CompanyInactiveInternshipsTable, CompanyDataComponent},
+  components: {AlertSuccess, CompanyActiveInternshipsTable, CompanyInactiveInternshipsTable, CompanyDataComponent},
   data() {
     return {
+      successMessage: '',
       userId: sessionStorage.getItem('userId')
     }
   },
   methods: {
     refreshCompanyActiveInternshipsTable(messageFromGrandChild) {
       this.$refs.companyActiveInternshipsTableRef.getCompanyActiveInternships()
-      // todo alert
-      alert(messageFromGrandChild)
+      this.successMessage = messageFromGrandChild
+      this.clearSuccessMessageAfterSmallDelay()
+
     },
     refreshCompanyInactiveInternshipsTable(messageFromGrandChild) {
       this.$refs.companyInactiveInternshipsTableRef.getCompanyInactiveInternships()
-      alert(messageFromGrandChild)
+      this.successMessage = messageFromGrandChild
+      this.clearSuccessMessageAfterSmallDelay()
+    },
+    refreshCompanyDataComponent(messageFromGrandChild) {
+      this.successMessage = messageFromGrandChild
+      this.$refs.companyDataComponentRef.getCompany()
+      this.clearSuccessMessageAfterSmallDelay()
+    },
+
+    clearSuccessMessageAfterSmallDelay() {
+      setTimeout(() => {
+        this.successMessage = ''
+      }, 3500);
+
     },
   }
 

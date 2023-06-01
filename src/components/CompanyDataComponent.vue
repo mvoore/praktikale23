@@ -1,4 +1,5 @@
 <template>
+  <AlertSuccess :message="successMessage"></AlertSuccess>
   <div class="col mt-3 text-start">
     <h3><strong>Andmed</strong>
       <span class="hoverable-icon" v-on:click="handleEditCompanyInfo" style="margin-left: 20px">
@@ -6,7 +7,8 @@
       </span>
       :
     </h3>
-    <CompanyInfoModal ref="companyInfoModalRef"/>
+    <EditCompanyInfoModal ref="editCompanyInfoModalRef" :company-id="company.companyId"
+                          @event-company-info-changed="refreshCompanyDataComponent"/>
     <p>{{ company.companyName }}</p>
     <p><strong>Kontakt:</strong></p>
     <p>E-mail {{ company.email }}</p>
@@ -28,15 +30,17 @@
 </template>
 <script>
 import router from "@/router";
-import CompanyInfoModal from "@/components/modal/CompanyInfoModal.vue";
+import EditCompanyInfoModal from "@/components/modal/EditCompanyInfoModal.vue";
 import AddressModal from "@/components/modal/AddressModal.vue";
+import AlertSuccess from "@/components/alert/AlertSuccess.vue";
 
 export default {
   name: 'CompanyDataComponent',
-  components: {AddressModal, CompanyInfoModal},
+  components: {AlertSuccess, AddressModal, EditCompanyInfoModal},
 
   data() {
     return {
+      successMessage: '',
       userId: sessionStorage.getItem('userId'),
       company: {
         companyId: 0,
@@ -57,7 +61,11 @@ export default {
     }
   },
   methods: {
+    clearAlertMessages() {
+      this.successMessage = ''
+    },
     getCompany: function () {
+      this.clearAlertMessages()
       this.$http.get("/company", {
             params: {
               userId: this.userId,
@@ -90,10 +98,12 @@ export default {
       this.$refs.addressModalRef.$refs.modalRef.openModal()
     },
     handleEditCompanyInfo() {
-      this.$refs.companyInfoModalRef.$refs.modalRef.openModal()
+      this.$refs.editCompanyInfoModalRef.$refs.modalRef.openModal()
     },
-
-
+    refreshCompanyDataComponent(messageFromChild) {
+      this.getCompany()
+      this.$emit('event-refresh-company-data-component', messageFromChild)
+    },
   },
   mounted() {
     this.getCompany();

@@ -11,7 +11,7 @@
         <input v-model="companyRequest.email" type="text" class="form-control" placeholder="Kontakt e-mail" aria-label="Company email input">
       </div>
       <div class="input-group mb-3">
-        <input v-model="companyRequest.phoneNumber" type="number" class="form-control" placeholder="Kontakt telefoninumber"
+        <input v-model="companyRequest.phoneNumber" type="text" class="form-control" placeholder="Kontakt telefoninumber"
                aria-label="Company phonenumber input">
       </div>
     </template>
@@ -26,10 +26,11 @@ import Modal from "@/components/modal/Modal.vue";
 import router from "@/router";
 
 export default {
-  name: 'CompanyInfoModal',
+  name: 'AddCompanyInfoModal',
   components: {Modal},
   props: {
-    closeButtonName: String
+    closeButtonName: String,
+    userId: Number
   },
   data() {
     return {

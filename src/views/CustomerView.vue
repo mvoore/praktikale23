@@ -14,7 +14,7 @@
             <div class="col col-3 mt-2 text-decoration-underline">
               Lisa uus pakkumine
               <router-link to="/new-offer" style="">
-                <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
+                <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="hoverable-icon ms-2"/>
               </router-link>
             </div>
             <div class="row">

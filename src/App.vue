@@ -1,6 +1,3 @@
-<head>
-<link rel="stylesheet" href="src/assets/my-style.css">
-</head>
 <template>
     <nav v-if="roleName === null"> </nav>
   <nav v-else class=" justify-content-center">
@@ -40,12 +37,12 @@
     <router-link to="" @click="handleLogout">Välja logimine</router-link>
 </template>
   </nav>
+  <nav class="footermenu justify-content-center">
+    <router-link to="/kkk">KKK</router-link> |
+    <router-link to="/contact">Kontakt</router-link>
+  </nav>
   <LogoutModal ref="logoutModalRef" @event-update-nav-menu="updateNavMenu"/>
 
-  <!--    <nav class=" justify-content-center">-->
-  <!--        <router-link to="/kkk">KKK</router-link> |-->
-  <!--        <router-link to="/contact">Kontakt</router-link>-->
-  <!--    </nav>-->
   <router-view @event-update-nav-menu="updateNavMenu"/>
 </template>
 

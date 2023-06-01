@@ -1,4 +1,7 @@
 <template>
+  <nav>
+    <router-link to="/">Esileht</router-link>
+  </nav>
     <div class="container mb-5">
         <div class="row">
             <div class="col align-content-center">

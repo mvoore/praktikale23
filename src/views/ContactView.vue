@@ -1,4 +1,7 @@
 <template>
+  <nav>
+    <router-link to="/">Esileht</router-link>
+  </nav>
     <div class="container mb-5">
         <br>
         <div class="row">
@@ -11,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col mb-3">
-                Praktikale OÜ
+               ValiIT Praktikale23
             </div>
         </div>
     </div>
@@ -24,7 +27,7 @@
                 <p>Aadress: Aia 7, Tallinn</p>
                 <p>Praktika otsija klienditugi +372 000 0000</p>
                 <p>Praktika pakkuja klienditugi +372 000 0001</p>
-                <p>Meiliaadress info@praktikale.ee</p>
+                <p>info@praktikale.ee</p>
             </div>
         </div>
     </div>

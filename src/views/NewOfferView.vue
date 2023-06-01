@@ -3,10 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col col-7 mt-3 text-start">
-                <h2>{{ pageTitle }}
-                    <font-awesome-icon :icon="['fas', 'user-pen']" size="xs" class="ms-5"/>
-                </h2>
-
+                <h2>{{ pageTitle }}</h2>
             </div>
         </div>
     </div>

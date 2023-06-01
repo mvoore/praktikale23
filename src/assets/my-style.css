@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
 }
-
 body {
     background-image: url("@/assets/glover.jpg");
     background-repeat: no-repeat;
@@ -13,7 +12,6 @@ body {
     height: 100vh;
     color: floralwhite;
 }
-
 .footermenu {
     position: fixed;
     bottom: 0;
@@ -22,31 +20,43 @@ body {
     text-align: center;
     color: coral;
 }
-
 .internship-image {
     display: inline-block;
     width: 200px;
 }
-
 .small-image {
     max-width: 100%;
     max-height: 100%;
 }
-
 .hoverable-icon {
     cursor: pointer;
     color: coral;
 }
-
 .modal {
     background-color: rgba(0, 0, 0, 0.5);
-    color: darkslategray;
 }
-
+h2 {
+    color: coral;
+}
+h3 {
+    color: coral;
+}
+h4 {
+    color: coral;
+}
+.modal-content {
+    background-color: darkslategray!important;
+    color: coral;
+    border-style: wave;
+    border-width: 2px;
+    border-color: coral;
+}
+.modal-body {
+    border: none!important;
+}
 #header {
     font-weight: bold;
 }
-
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -54,16 +64,51 @@ body {
     text-align: center;
     color: floralwhite;
 }
-
 nav {
     padding: 30px;
 }
-
 nav a {
     font-weight: bold;
-    color: blanchedalmond;
+    color: floralwhite;
 }
-
 nav a.router-link-exact-active {
     color: darkorange;
+}
+input {
+    background-color: darkslategray!important;
+    color: floralwhite!important;
+}
+input:focus::placeholder {
+    background-color: darkslategray!important;
+    color: gray!important;
+}
+input::placeholder {
+    background-color: darkslategray!important;
+    color: floralwhite!important;
+}
+textarea {
+    background-color: darkslategray!important;
+    color: floralwhite!important;
+}
+textarea::placeholder {
+    background-color: darkslategray!important;
+    color: floralwhite!important;
+}
+textarea:focus::placeholder {
+    background-color: darkslategray!important;
+    color: grey!important;
+}
+.btn {
+    background-color: #c6613f !important;
+    border-color: #c6613f;
+    color: black!important;
+}
+.btn:hover {
+    transform: scale(1.1);
+    transition: all 500ms;
+    border-color: #c6613f;
+}
+select {
+    background-color: darkslategray!important;
+    color: floralwhite!important;
 }

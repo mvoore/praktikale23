@@ -24,14 +24,16 @@
                 </h4>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Nimi</span>
-                    <input v-model="internContact.fullName" type="text" class="form-control"  >
+                    <input v-model="internContact.fullName" type="text" class="form-control">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Email</span>
-                    <input v-model="internContact.email" type="text" class="form-control" >
+                    <input v-model="internContact.email" type="text" class="form-control">
                 </div>
                 <div>
-                    <button @click="" type="submit" class="btn btn-outline-primary btn-sm">Salvesta nimi ja email</button>
+                    <button @click="saveUser" type="submit" class="btn btn-outline-primary btn-sm">Salvesta nimi ja
+                        email
+                    </button>
                 </div>
             </div>
             <div class=" mt-3 text-start">
@@ -50,7 +52,9 @@
                     <br>
                     <CoverletterInput @event-emit-base64="setCoverletterFileData"/>
 
-                    <button @click="addCoverletter" type="submit" class="btn btn-outline-primary btn-sm">Salvesta motivatsioonikiri</button>
+                    <button @click="addCoverletter" type="submit" class="btn btn-outline-primary btn-sm">Salvesta
+                        motivatsioonikiri
+                    </button>
                 </div>
             </div>
         </div>
@@ -74,7 +78,7 @@
 <script>
 import CvInput from "@/components/CvCoverletter/CvInput.vue";
 import CoverletterInput from "@/components/CvCoverletter/CoverletterInput.vue";
-import router from "@/router";
+
 
 export default {
     name: "internView",
@@ -96,8 +100,12 @@ export default {
                 fileData: ''
             },
             newCoverletter: {
-                title:'',
-                fileData:''
+                title: '',
+                fileData: ''
+            },
+            editUser: {
+                fullName: '',
+                email: ''
             }
         }
     },
@@ -126,14 +134,14 @@ export default {
                     }
                 }
             ).then(response => {
-               this.newCoverletter =response.data
+                this.newCoverletter = response.data
 
             }).catch(error => {
                 const errorResponseBody = error.response.data
             })
         },
-        setCoverletterFileData(fileData){
-            this.newCoverletter.fileData= fileData
+        setCoverletterFileData(fileData) {
+            this.newCoverletter.fileData = fileData
         },
         getInternContact: function () {
             this.$http.get("/intern", {
@@ -147,7 +155,23 @@ export default {
                 const errorResponseBody = error.response.data
             })
         },
+
+        saveUser: function () {
+            this.$http.patch("/intern", this.internContact, {
+                    params: {
+                        userId: this.userId
+                    }
+                }
+            ).then(response => {
+                const responseBody = response.data
+            }).catch(error => {
+                const errorResponseBody = error.response.data
+            })
+        },
     },
+    mounted() {
+        this.getInternContact()
+    }
 }
 
 </script>

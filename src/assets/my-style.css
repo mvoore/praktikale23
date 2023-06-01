@@ -36,6 +36,8 @@ body {
 
 .hoverable-icon {
     cursor: pointer;
+    color: yellow;
+    animation-delay: initial;
 }
 
 .modal {

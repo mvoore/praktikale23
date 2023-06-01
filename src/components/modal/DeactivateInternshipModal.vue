@@ -4,7 +4,7 @@
       Deaktiveeri pakkumine
     </template>
     <template #body>
-      Kas soovid muuta praktikapkkumist mitteaktiivseks ?
+      Kas soovid muuta praktikapkkumise mitteaktiivseks ?
     </template>
     <template #footer>
       <button @click="deactivateInternship" type="button" class="btn btn-primary">Jah</button>
@@ -15,8 +15,7 @@
 <script>
 import Modal from "@/components/modal/Modal.vue";
 import router from "@/router";
-import {config} from "@fortawesome/fontawesome-svg-core";
-import {useRoute} from "vue-router";
+
 
 export default {
   name: 'DeactivateInternshipModal',
@@ -41,8 +40,7 @@ export default {
           .then(response => {
             this.$refs.modalRef.closeModal()
             this.$emit('event-internship-deactivated', 'Praktikapakkumine on arhiveeritud')
-          })
-          .catch(error => {
+          }).catch(error => {
             router.push({name: 'errorRoute'})
           })
     },

@@ -1,8 +1,8 @@
 <template>
   <Alert :message="message">
     <template #body>
-      <div class="alert alert-danger" role="alert">
-        {{ message }}
+      <div class="alert alert-success" role="alert">
+        {{message}}
       </div>
     </template>
   </Alert>
@@ -12,7 +12,7 @@
 import Alert from "@/components/alert/Alert.vue";
 
 export default {
-  name: 'AlertDanger',
+  name: 'AlertSuccess',
   components: {Alert},
   props: {
     message: String

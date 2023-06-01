@@ -1,7 +1,7 @@
 <template>
   <div class="col mt-3 text-start">
     <h3><strong>Andmed</strong>
-      <span class="hoverable-icon" v-on:click="handleAddCompanyInfo" style="margin-left: 20px">
+      <span class="hoverable-icon" v-on:click="handleEditCompanyInfo" style="margin-left: 20px">
          <font-awesome-icon :icon="['far', 'pen-to-square']"/>
       </span>
       :
@@ -13,7 +13,7 @@
     <p>Telefon {{ company.phoneNumber }}</p>
     <p><strong>Aadressid</strong>
       <span class="hoverable-icon" v-on:click="handleAddNewAddress" style="margin-left: 10px">
-      <font-awesome-icon :icon="['far', 'pen-to-square']"/>
+      <font-awesome-icon :icon="['fas', 'plus']"/>
       </span>
       <AddressModal ref="addressModalRef"/>
       :
@@ -86,11 +86,11 @@ export default {
         router.push({name: 'errorRoute'})
       })
     },
-    handleAddCompanyInfo() {
-      this.$refs.companyInfoModalRef.$refs.modalRef.openModal()
-    },
     handleAddNewAddress() {
       this.$refs.addressModalRef.$refs.modalRef.openModal()
+    },
+    handleEditCompanyInfo() {
+      this.$refs.companyInfoModalRef.$refs.modalRef.openModal()
     },
 
 

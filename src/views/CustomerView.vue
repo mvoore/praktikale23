@@ -13,7 +13,7 @@
           <div class="container">
             <div class="col col-3 mt-2 text-decoration-underline">
               Lisa uus pakkumine
-              <router-link to="/new-offer" style="">
+              <router-link to="/new-offer">
                 <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="hoverable-icon ms-2"/>
               </router-link>
             </div>

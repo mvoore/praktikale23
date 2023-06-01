@@ -22,8 +22,6 @@
       </div>
     </div>
     <div v-if="!userHasCompany">
-<!--      <p>Palun lisa firma info.</p>-->
-<!--      <button @click="handleEditCompanyInfo"></button>-->
     </div>
     <div class="row">
       <div class="col mt-3">
@@ -34,9 +32,7 @@
   <AddCompanyInfoModal ref="addCompanyInfoModalRef" :user-id="loginResponse.userId"/>
 </template>
 
-
 <script>
-
 
 import router from "@/router";
 import AlertDanger from "@/components/alert/AlertDanger.vue";

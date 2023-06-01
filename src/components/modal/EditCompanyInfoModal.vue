@@ -71,7 +71,6 @@ export default {
       ).then(response => {
         this.$refs.modalRef.closeModal()
         this.$emit('event-company-info-changed', 'Ettevõte info on muudetud.')
-        this.successMessage ='Ettevõte info on muudetud.'
       }).catch(error => {
         router.push({name: 'errorRoute'})
       })

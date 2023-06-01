@@ -58,20 +58,6 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col col-6 text-start">
-                Minu praktika kandideerimised:
-                <br>
-                <br>
-                <p> Esimene pakkumine</p>
-                <p> Teine pakkumine</p>
-            </div>
-        </div>
-    </div>
-  <!--    <button @click="addCv" type="button" class="btn btn-outline-success">Lisa CV</button>-->
-  <!--    <button @click="addCoverLetter" type="button" class="btn btn-outline-success">Lisa motivatsioonikiri</button>-->
-
 </template>
 
 <script>

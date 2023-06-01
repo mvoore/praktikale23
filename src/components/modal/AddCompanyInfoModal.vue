@@ -5,13 +5,16 @@
     </template>
     <template #body>
       <div class="input-group mb-3">
-        <input v-model="companyRequest.companyName" type="text" class="form-control" placeholder="Firma nimi" aria-label="Company name input">
+        <input v-model="companyRequest.companyName" type="text" class="form-control" placeholder="Firma nimi"
+               aria-label="Company name input">
       </div>
       <div class="input-group mb-3">
-        <input v-model="companyRequest.email" type="text" class="form-control" placeholder="Kontakt e-mail" aria-label="Company email input">
+        <input v-model="companyRequest.email" type="text" class="form-control" placeholder="Kontakt e-mail"
+               aria-label="Company email input">
       </div>
       <div class="input-group mb-3">
-        <input v-model="companyRequest.phoneNumber" type="text" class="form-control" placeholder="Kontakt telefoninumber"
+        <input v-model="companyRequest.phoneNumber" type="text" class="form-control"
+               placeholder="Kontakt telefoninumber"
                aria-label="Company phonenumber input">
       </div>
     </template>

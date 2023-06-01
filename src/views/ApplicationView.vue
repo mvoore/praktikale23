@@ -20,11 +20,28 @@
     </div>
     <div class="container mt-5 text-start">
         <div>
-            Lisa CV
-            <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vali CV
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button class="dropdown-item" type="button">CV1</button></li>
+                    <li><button class="dropdown-item" type="button">CV2</button></li>
+                    <li><button class="dropdown-item" type="button">CV3</button></li>
+                </ul>
+            </div>
+
             <br>
-            Lisa motivatsioonikiri
-            <font-awesome-icon :icon="['fas', 'plus']" size="xl" class="ms-2"/>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Vali motivatsioonikiri
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button">Motivatsioonikiri 1</button></li>
+                <li><button class="dropdown-item" type="button">Motivatsioonikiri 2</button></li>
+                <li><button class="dropdown-item" type="button">Motivatsioonikiri 3</button></li>
+            </ul>
+
         </div>
         <br>
         <br>

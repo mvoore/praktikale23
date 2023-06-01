@@ -18,7 +18,7 @@
             <td>{{ internship.title }}</td>
             <td>{{ internship.dateAdded }}</td>
             <td><a href="#"  @click="viewInternshipDetails(internship.internshipId)">
-                Pakkumine {{ internship.internshipId }}
+                Pakkumise info
             </a></td>
         </tr>
         </tbody>
@@ -83,10 +83,10 @@ export default {
         setSelectedSortValue(selectedSortValue) {
             this.selectedSortValue = selectedSortValue
         },
-        viewInternshipDetails(internshipId) {
-            this.$refs.internshipModalRef.setInternshipId(internshipId)
-            this.$refs.internshipModalRef.getInternshipOffer()
-        },
+        async viewInternshipDetails(internshipId) {
+            await this.$refs.internshipModalRef.setInternshipId(internshipId);
+            this.$refs.internshipModalRef.getInternshipOffer();
+        }
 
 
     },

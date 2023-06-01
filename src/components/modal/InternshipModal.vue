@@ -6,17 +6,13 @@
         <template #body>
             <div class="row">
                 <div class="col text-start" id="title">
-                    <td>Otsime: {{ internshipOffer.title }}</td>
+                    <td><strong>Otsime:</strong> {{ internshipOffer.title }}</td>
                 </div>
+                <br>
             </div>
             <div class="row">
                 <div class="col text-start">
-                    <td>Praktika asukoht: {{ internshipOffer.address }}</td>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-start">
-                    <td>Info: {{ internshipOffer.description }}</td>
+                    <td><strong>Info: </strong>{{ internshipOffer.description }}</td>
                 </div>
             </div>
             <div class="col">

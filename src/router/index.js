@@ -51,7 +51,7 @@ const routes = [
   },
   {
     path: '/new-offer',
-    name: 'newOfferView',
+    name: 'newOfferRoute',
     component: NewOfferView
   },
 
@@ -71,7 +71,7 @@ const routes = [
     path: '/application',
     name: 'applicationRoute',
     component: ApplicationView
-  },
+  }
 
 ]
 

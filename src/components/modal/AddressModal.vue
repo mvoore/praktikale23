@@ -1,13 +1,14 @@
 <template>
-  <Modal ref="modalRef" close-button-name="Tagasi">
+  <Modal ref="modalRef" close-button-name="Sulge">
     <template #header>
-      Kandideerimise avalduse esitamine.
+      Lisa aadress
     </template>
     <template #body>
-      Oled kindel, et soovid avalduse esitada?
+      <AddressInput/>
     </template>
+      <button @click="AddressAdded" type="button" class="btn btn-primary">Jah</button>
     <template #footer>
-      <button @click="ApplicationAdded" type="button" class="btn btn-primary">Jah</button>
+
     </template>
   </Modal>
 </template>
@@ -15,15 +16,16 @@
 <script>
 import Modal from "@/components/modal/Modal.vue";
 import router from "@/router";
+import AddressInput from "@/components/AddressInput.vue";
 
 export default {
-  name: 'ApplicationModal',
-  components: {Modal},
+  name: 'AddressModal',
+  components: {AddressInput, Modal},
   methods: {
-    ApplicationAdded() {
+    AddressAdded() {
       this.$refs.modalRef.closeModal()
       this.$emit('event-update-nav-menu')
-      router.push({name: 'internshipsRoute'})
+      router.push({name: 'homeRoute'})
     },
   }
 }

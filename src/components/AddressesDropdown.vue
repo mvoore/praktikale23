@@ -43,6 +43,11 @@ export default {
             router.push({name: 'errorRoute'})
           })
     },
+
+
+      setSelectedAddressId(addressId) {
+          this.selectedAddressId = addressId
+      },
   },
   beforeMount() {
     this.getAddresses()
